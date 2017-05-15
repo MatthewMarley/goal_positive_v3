@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <% @goals.each do |goal| %>
+            <div class="well">
+                <%= goal.name %>
+                <%= goal.description %>
+            </div>
+        <% end %>
+    </div>
+</div>
