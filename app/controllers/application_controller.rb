@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
-  
+  helper_method :current_user, :logged_in?
   def current_user
     # If @current_user is undefined, then assign it the following value. (also only do this is session[:user_id] exists)
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
