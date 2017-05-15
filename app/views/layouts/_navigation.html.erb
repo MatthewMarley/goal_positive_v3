@@ -42,9 +42,8 @@
             <% if logged_in? %>
               <li><%= link_to "My Goals", goal_path(current_user) %></li>
             <% end %>
-            <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><%= link_to "Create a New Goal", new_goal_path %></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">One more separated link</a></li>
           </ul>

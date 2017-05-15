@@ -13,7 +13,7 @@ class GoalsController < ApplicationController
         @goal.user_id = current_user.id
         if @goal.save
             flash[:success] = "Your goal was successfully created!"
-            redirect_to goals_path
+            redirect_to user_path(current_user)
         else
             flash.now[:danger] = "Your goal was unable to save"
             render 'new'
@@ -40,13 +40,13 @@ class GoalsController < ApplicationController
     end
     
     def destroy
-        @goal = Goal.find(params[:id])
+        @goal = Goal.find(params[:goal_id])
         if @goal.destroy
             flash[:success] = "Goal successfully destroyed"
-            redirect_to goals_path
+            redirect_to user_path(@user)
         else
             flash[:danger] = "Goal unable to be deleted"
-            redirect_to goal_path(@goal)
+            redirect_to user_path(@user)
         end
     end
     
