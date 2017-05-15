@@ -1,0 +1,16 @@
+Users.
+Routes
+- get 'signup' to users#new
+- Resources users, except: [:new]
+- get login to sessions#new
+- post login to sessions#create
+- delete logout to sessions#destroy
+
+Controllers
+    UsersController
+    - Create: is used for new signups, and automatically signing in the user upon singup.
+    
+    SessionsController
+    - Create: Find the user by their email. Then if user exists and user.authenticate = true, make the user.id = session.id
+    - Destroy: Sets the session[:user_id] = nil.
+    
