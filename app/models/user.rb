@@ -10,5 +10,5 @@ class User < ActiveRecord::Base
               length: { maximum: 105 },
               format: { with: VALID_EMAIL_REGEX }
     has_many :goals
-    
+    has_many :comments, :as => :commentable
 end
