@@ -38,6 +38,7 @@ class UpdatesController < ApplicationController
     
     def show
         @update = Update.find(params[:id])
+        @comment = Comment.new
     end
 
     def destroy

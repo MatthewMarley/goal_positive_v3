@@ -1,1 +1,8 @@
-<%= form_for 
+<%= form_for(@comment) do |f| %>
+
+<div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_area :name, rows: 10, class: "form-control", placeholder: "Enter you comment" %>
+</div>
+
+<% end %>
