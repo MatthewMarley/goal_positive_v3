@@ -17,6 +17,9 @@
                     <%= link_to "Delete Goal", goal_path(goal), method: :delete, data: {confirm: "Are you sure?"},
                     class: 'btn btn-xs btn-danger' %>
                 <% end %>
+                <div class="user-show-updates">
+                    <small><%= link_to "Add an Update", new_goal_update_path(goal) %></small>
+                </div>
                 </div>
             </div>
         <% end %>
