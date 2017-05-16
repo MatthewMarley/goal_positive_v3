@@ -5,7 +5,7 @@
             <%= @user.email %>
         </div>
         
-        <% @user.goals.each do |goal| %>
+        <% @user_goals.each do |goal| %>
             <div class="well">
                 <strong>Goal: </strong><%= goal.name %>
                 <hr>
@@ -14,7 +14,7 @@
                     <%= link_to "Show Goal", goal_path(goal), class: 'btn btn-xs btn-primary' %>
                 <% if logged_in? && (current_user == goal.user) %>
                     <%= link_to "Edit Goal", edit_goal_path, class: 'btn btn-xs btn-warning' %>
-                    <%= link_to "Delete Goal", goal_path, method: :delete, data: {confirm: "Are you sure?"},
+                    <%= link_to "Delete Goal", goal_path(goal), method: :delete, data: {confirm: "Are you sure?"},
                     class: 'btn btn-xs btn-danger' %>
                 <% end %>
                 </div>

@@ -1,4 +1,6 @@
 class GoalsController < ApplicationController
+    
+    before_action :require_user, except: [:index]
    
     def index
         @goals = Goal.all
@@ -40,13 +42,13 @@ class GoalsController < ApplicationController
     end
     
     def destroy
-        @goal = Goal.find(params[:goal_id])
+        @goal = Goal.find(params[:id])
         if @goal.destroy
             flash[:success] = "Goal successfully destroyed"
-            redirect_to user_path(@user)
+            redirect_to user_path(current_user)
         else
-            flash[:danger] = "Goal unable to be deleted"
-            redirect_to user_path(@user)
+            flash[:danger] = "Goal unable to be destroyed"
+            redirect_to user_path(current_user)
         end
     end
     
