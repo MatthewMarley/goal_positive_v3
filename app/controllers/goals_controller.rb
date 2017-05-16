@@ -1,6 +1,7 @@
 class GoalsController < ApplicationController
     
-    before_action :require_user, except: [:index]
+    before_action :require_user, except: [:index, :show]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
    
     def index
         @goals = Goal.all
@@ -61,6 +62,13 @@ class GoalsController < ApplicationController
     
     def set_user
         @user = current_user 
+    end
+    
+    def require_same_user
+        if current_user != @goal.user and !current_user.admin?
+            flash[:danger] = "YOu do not have permission to amend this goal"
+            redirect_to root_path
+        end
     end
     
 end

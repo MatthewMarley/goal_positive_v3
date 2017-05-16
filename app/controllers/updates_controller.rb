@@ -26,5 +26,12 @@ class UpdatesController < ApplicationController
         params.require(:update).permit(:date, :title, :update_description) 
     end
     
+    def require_same_user
+        if @update =! current_user and !current_user.admin?
+            flash[:danger] = "You do not have permission to perform that action"
+            redirect_to root_path
+        end
+    end
+    
     
 end

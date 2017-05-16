@@ -1,16 +1,14 @@
-Users.
-Routes
-- get 'signup' to users#new
-- Resources users, except: [:new]
-- get login to sessions#new
-- post login to sessions#create
-- delete logout to sessions#destroy
+Updates
 
-Controllers
-    UsersController
-    - Create: is used for new signups, and automatically signing in the user upon singup.
-    
-    SessionsController
-    - Create: Find the user by their email. Then if user exists and user.authenticate = true, make the user.id = session.id
-    - Destroy: Sets the session[:user_id] = nil.
-    
+in Goal#show
+ - Only admins and the owner of the goal can edit or delete updates
+ - The owner of the goal should be the only one allowed to create a update
+   There should also be a link for this on the goal-show page
+ - the update_description field should show 100 characters before fading behind ... Users
+   will need to go into the update#show action to read the whole update (or have the page extended?)
+ - Users should be able to jump into any update (taking them to the updates#show action
+   (I need to create this in the routes file)
+
+in Update#show
+ - The goal owner and admins should be able to edit and delete the status update
+ 

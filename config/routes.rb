@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :goals do
-    resources :updates, only: [:new, :create]
+    resources :updates, except: [:index]
   end
 end
