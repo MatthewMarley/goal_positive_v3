@@ -8,6 +8,11 @@
                 <div class="show-goal-links">
                     <%= link_to "Edit Goal", edit_goal_path(@goal), class: 'btn btn-xs btn-primary' %>
                     <%= link_to "Delete Goal", goal_path(@goal), class: 'btn btn-xs btn-danger', method: :delete %>
+                    <% if logged_in? && (current_user == @goal.user) %>
+                        <div class="goal-show-updates">
+                            <small><%= link_to "Add an Update", new_goal_update_path(@goal) %></small>
+                        </div>
+                    <% end %>
                 </div>
             <% end %>
         </div>
@@ -23,6 +28,7 @@
                         <%= link_to "Edit Update", edit_goal_update_path(update), class: 'btn btn-xs btn-warning' %>
                         <%= link_to "Delete Update", goal_update_path(update), class: 'btn btn-xs btn-danger' %>
                     <% end %>
+                    
                 </div>
             </div>
         <% end %>

@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="well">
+            <strong>Title: </strong><%= @update.title %>
+            <hr>
+            <strong>Description: </strong><%= @update.update_description %>
+            <div class="update-show-buttons">
+                <% if logged_in? && @update.user == current_user || current_user.admin? %>
+                    <%= link_to "Edit Update", edit_goal_update_path(@update), class: 'btn btn-xs btn-warning' %>
+                    <%= link_to "Delete Update", goal_update_path(@update), class: 'btn btn-xs btn-danger', 
+                        method: :delete, data: { confirm: "Are you sure?" } %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

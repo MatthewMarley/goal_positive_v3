@@ -37,7 +37,7 @@ class UpdatesController < ApplicationController
     end
     
     def show
-    
+        @update = Update.find(params[:id])
     end
 
     def destroy
