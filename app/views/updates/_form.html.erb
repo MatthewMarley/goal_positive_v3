@@ -1,0 +1,22 @@
+<%= form_for @update, url: goal_updates_path do |f| %>
+
+<div class="form-group">
+    <%= f.label :date %>
+    <%= f.date_field :date, class: "form-control" %>
+</div>
+
+<div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control", placeholder: "Title of Update" %>
+</div>
+
+<div class="form-group">
+    <%= f.label :update_description %>
+    <%= f.text_area :update_description, rows: 10, class: "form-control", placeholder: "Body of Update" %>
+</div>
+
+<div class="form-group">
+    <%= f.submit "Submit Update", class: 'btn btn-primary' %>
+</div>
+
+<% end %>

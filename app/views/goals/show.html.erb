@@ -5,5 +5,13 @@
             <hr>
             <strong>Description: </strong><%= @goal.description %>
         </div>
+        <h2 align="center">Updates</h2>
+        <% @goal.updates.each do |update| %>
+            <div class="well">
+                <strong>Title: </strong><%= update.title %>
+                <hr>
+                <%= update.update_description %>
+            </div>
+        <% end %>
     </div>
 </div>

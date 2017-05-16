@@ -1,16 +1,20 @@
 class UpdatesController < ApplicationController
     
     def new
-        @update = StatusUpdate.new
+        @update = Update.new
+        @goal = Goal.find(params[:goal_id])
     end
     
     def create
-        @update = StatusUpdate.new(update_params)
+        @goal = Goal.find(params[:goal_id])
+        @update = Update.new(update_params)
+        @update.user_id = current_user.id
+        @update.goal_id = @goal.id
         if @update.save
             flash[:success] = "Your update has been added to your timeline"
             redirect_to users_path
         else
-            flash.now[:danger] = "Your update was unable to be saved"
+            flash[:danger] = @update.errors.full_messages.join(", ")
             render 'new'
         end
     end
@@ -19,7 +23,7 @@ class UpdatesController < ApplicationController
     
     private
     def update_params
-        params.require(:status_update).permit(:date, :title, :update_description) 
+        params.require(:update).permit(:date, :title, :update_description) 
     end
     
     
