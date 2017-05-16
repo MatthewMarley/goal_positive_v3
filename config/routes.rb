@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :goals do
     resources :updates, except: [:index]
   end
+  resources :comments, except: [:index]
 end

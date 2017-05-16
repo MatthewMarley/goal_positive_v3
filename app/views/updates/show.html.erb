@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-8 col-md-offset-2">
         <div class="well">
             <strong>Title: </strong><%= @update.title %>
             <hr>
@@ -12,5 +12,21 @@
                 <% end %>
             </div>
         </div>
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                        Click to reply
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <%= render 'comments/form' %>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </div>
