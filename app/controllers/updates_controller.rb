@@ -1,5 +1,7 @@
 class UpdatesController < ApplicationController
     
+    before_action :set_goal
+    
     def new
         @update = Update.new
         @goal = Goal.find(params[:goal_id])
@@ -19,6 +21,35 @@ class UpdatesController < ApplicationController
         end
     end
     
+    def edit
+        @update = Update.find(params[:id])
+    end
+    
+    def update
+        @update = Update.find(params[:id])
+        if @update.update(update_params)
+            flash[:success] = "Update successfully updated"
+            redirect_to goal_path(@goal)
+        else
+            flash[:danger] = "Unable to update"
+            render 'edit'
+        end
+    end
+    
+    def show
+    
+    end
+
+    def destroy
+        @update = Update.find(params[:id])
+        if @update.destroy
+            flash[:success] = "Update successfuly deleted"
+            redirect_to goal_path(@goal)
+        else
+            flash[:danger] = "Update unable to be deleted"
+            redirect_to goal_path(@goal)
+        end
+    end
     
     
     private
@@ -31,6 +62,10 @@ class UpdatesController < ApplicationController
             flash[:danger] = "You do not have permission to perform that action"
             redirect_to root_path
         end
+    end
+    
+    def set_goal
+        @goal = Goal.find(params[:id])
     end
     
     
