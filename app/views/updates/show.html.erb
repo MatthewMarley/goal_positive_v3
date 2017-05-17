@@ -6,8 +6,8 @@
             <strong>Description: </strong><%= @update.update_description %>
             <div class="update-show-buttons">
                 <% if logged_in? && @update.user == current_user || current_user.admin? %>
-                    <%= link_to "Edit Update", edit_goal_update_path(@update), class: 'btn btn-xs btn-warning' %>
-                    <%= link_to "Delete Update", goal_update_path(@update), class: 'btn btn-xs btn-danger', 
+                    <%= link_to "Edit Update", edit_update_path(@update), class: 'btn btn-xs btn-warning' %>
+                    <%= link_to "Delete Update", update_path(@update), class: 'btn btn-xs btn-danger', 
                         method: :delete, data: { confirm: "Are you sure?" } %>
                 <% end %>
             </div>

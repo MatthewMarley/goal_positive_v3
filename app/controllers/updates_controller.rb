@@ -1,6 +1,5 @@
 class UpdatesController < ApplicationController
     
-    before_action :set_goal
     before_action :set_update
     
     def new
@@ -64,10 +63,6 @@ class UpdatesController < ApplicationController
             flash[:danger] = "You do not have permission to perform that action"
             redirect_to root_path
         end
-    end
-    
-    def set_goal
-        @goal = Goal.find(params[:goal_id])
     end
     
     def set_update

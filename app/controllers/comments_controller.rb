@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     
     def create
         @commentable = find_commentable
-        @comment = @commentable.comments.build(comment_params)
+        @comment = @commentable.comments.new(comment_params)
         if @comment.save
             flash[:success] = "Comment Sent!"
             redirect_to root_path
