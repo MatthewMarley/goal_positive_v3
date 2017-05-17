@@ -71,4 +71,8 @@ class GoalsController < ApplicationController
         end
     end
     
+    def set_goal
+        @goal = Goal.find(params[:id])
+    end
+    
 end

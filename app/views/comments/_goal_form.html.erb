@@ -1,4 +1,4 @@
-<%= form_for @comment, url: goal_comments_path(@goal) do |f| %>
+<%= form_for [@commentable, Comment.new], url: goal_comments_path(@goal) do |f| %>
 
 <div class="form-group">
     <%= f.label :name %>

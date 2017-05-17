@@ -69,5 +69,4 @@ class UpdatesController < ApplicationController
         @update = Update.find(params[:id])
     end
     
-    
 end
