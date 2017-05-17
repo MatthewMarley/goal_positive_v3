@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
         @comment = @commentable.comments.new(comment_params)
         if @comment.save
             flash[:success] = "Comment Sent!"
-            redirect_to root_path
+            redirect_to :back
         else
             flash[:danger] = @comment.errors.full_messages
             render 'new'

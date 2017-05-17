@@ -29,5 +29,14 @@
             </div>
         </div>
         
+        <% @update.comments.each do |comment| %>
+            <div class="update-comments">
+                <small><%= @update.user.username %>: </small>
+                <br>
+                <%= comment.name %>
+                <hr>
+            </div>
+        <% end %>
+        
     </div>
 </div>
