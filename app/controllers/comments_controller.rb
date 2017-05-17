@@ -1,15 +1,16 @@
 class CommentsController < ApplicationController
     
     #before_action :set_goal
-    before_action :set_update
+    #before_action :set_update
     #before_action :load_commentable
-    #def new
-    #    @comment = @commentable.comments.new
-    #end
+    def new
+        @commentable = find_commentable
+        @comment = @commentable.comments.new
+    end
     
     def create
         @commentable = find_commentable
-        @comment = @commentable.comments.new(comment_params)
+        @comment = @commentable.comments.build(comment_params)
         if @comment.save
             flash[:success] = "Comment Sent!"
             redirect_to root_path
@@ -37,6 +38,10 @@ class CommentsController < ApplicationController
     
     def set_update
         @update = Update.find(params[:update_id]) 
+    end
+    
+    def set_goal
+        @goal = Goal.find(params[:id]) 
     end
     
     
