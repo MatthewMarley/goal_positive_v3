@@ -1,17 +1,15 @@
 class UpdatesController < ApplicationController
     
-    before_action :set_update
+    #before_action :set_update
     
     def new
         @update = Update.new
-        @goal = Goal.find(params[:goal_id])
     end
     
     def create
-        @goal = Goal.find(params[:goal_id])
         @update = Update.new(update_params)
         @update.user_id = current_user.id
-        @update.goal_id = @goal.id
+        #@update.goal_id = @goal.id
         if @update.save
             flash[:success] = "Your update has been added to your timeline"
             redirect_to users_path

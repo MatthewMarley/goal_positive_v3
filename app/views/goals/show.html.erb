@@ -19,6 +19,24 @@
         </div>
         <h4 align="center">Updates - <h6 class="update-addition">
             <%= link_to "Add an Update", new_update_path %></h6></h4>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordian" href="#collapseOne">
+                            Add an Update
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        
+                    </div>
+                </div>
+            </div>
+            
+            
+            
         <% @goal.updates.each do |update| %>
             <div class="well">
                 <strong>Title: </strong><%= update.title %>
