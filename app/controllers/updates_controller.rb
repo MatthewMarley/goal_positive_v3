@@ -65,8 +65,8 @@ class UpdatesController < ApplicationController
         end
     end
     
-    def set_update
-        @update = Update.find(params[:id])
-    end
+    #def set_update
+    #    @update = Update.find(params[:id])
+    #end
     
 end

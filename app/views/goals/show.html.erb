@@ -17,7 +17,8 @@
                 </div>
             <% end %>
         </div>
-        <h2 align="center">Updates</h2>
+        <h4 align="center">Updates - <h6 class="update-addition">
+            <%= link_to "Add an Update", new_update_path %></h6></h4>
         <% @goal.updates.each do |update| %>
             <div class="well">
                 <strong>Title: </strong><%= update.title %>
