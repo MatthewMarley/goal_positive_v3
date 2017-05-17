@@ -23,7 +23,7 @@
                 <hr>
                 <%= update.update_description %>
                 <div class="show-update-links">
-                    <%= link_to "View Update", goal_update_path(update), class: 'btn btn-xs btn-primary' %>
+                    <%= link_to "View Update", goal_update_path(id: update.id, goal_id: @goal.id), class: 'btn btn-xs btn-primary' %>
                     <% if logged_in? && current_user = update.user || current_user.admin? %>
                         <%= link_to "Edit Update", edit_goal_update_path(update), class: 'btn btn-xs btn-warning' %>
                         <%= link_to "Delete Update", goal_update_path(update), class: 'btn btn-xs btn-danger' %>

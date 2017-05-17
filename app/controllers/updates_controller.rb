@@ -1,6 +1,7 @@
 class UpdatesController < ApplicationController
     
     before_action :set_goal
+    before_action :set_update
     
     def new
         @update = Update.new
@@ -66,7 +67,11 @@ class UpdatesController < ApplicationController
     end
     
     def set_goal
-        @goal = Goal.find(params[:id])
+        @goal = Goal.find(params[:goal_id])
+    end
+    
+    def set_update
+        @update = Update.find(params[:id])
     end
     
     
