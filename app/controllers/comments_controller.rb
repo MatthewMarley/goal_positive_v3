@@ -1,15 +1,15 @@
 class CommentsController < ApplicationController
     
-    #before_action :set_goal
-    #before_action :set_update
     #before_action :load_commentable
     
-    #def new
-    #    @commentable = find_commentable
-    #    @comment = @commentable.comments.new
-    #end
+    def new
+        @goal = Goal.find(params[:goal_id])
+        @commentable = find_commentable
+        @comment = @commentable.comments.new
+    end
     
     def create
+        @goal = Goal.find(params[:goal_id])
         @commentable = find_commentable
         @comment = @commentable.comments.new(comment_params)
         if @comment.save

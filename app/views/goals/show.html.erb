@@ -11,14 +11,14 @@
                     <%= link_to "Delete Goal", goal_path(@goal), class: 'btn btn-xs btn-danger', method: :delete %>
                     <% if logged_in? && (current_user == @goal.user) %>
                         <div class="goal-show-updates">
-                            <small><%= link_to "Add an Update", new_update_path(@goal) %></small>
+                            <small><%= link_to "Add an Update", new_goal_update_path(@goal) %></small>
                         </div>
                     <% end %>
                 </div>
             <% end %>
         </div>
         <h4 align="center">Updates - <h6 class="update-addition">
-            <%= link_to "Add an Update", new_update_path %></h6></h4>
+            <%= link_to "Add an Update", new_goal_update_path(@goal) %></h6></h4>
             
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -30,7 +30,7 @@
                 </div>
                 <div id="collapseOne" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <%= render 'updates/form', :goal_id => @goal.id %>
+                        
                     </div>
                 </div>
             </div>
@@ -43,10 +43,11 @@
                 <hr>
                 <%= update.update_description %>
                 <div class="show-update-links">
-                    <%= link_to "View Update", update_path(update), class: 'btn btn-xs btn-primary' %>
+                    <%= link_to "View Update", goal_update_path(@goal, update), class: 'btn btn-xs btn-primary' %>
                     <% if logged_in? && current_user = update.user || current_user.admin? %>
-                        <%= link_to "Edit Update", edit_update_path(update), class: 'btn btn-xs btn-warning' %>
-                        <%= link_to "Delete Update", update_path(update), class: 'btn btn-xs btn-danger' %>
+                        <%= link_to "Edit Update", edit_goal_update_path(@goal, update), class: 'btn btn-xs btn-warning' %>
+                        <%= link_to "Delete Update", goal_update_path(@goal, update), class: 'btn btn-xs btn-danger',
+                        method: :delete, data: { confirm: "Are you sure?" } %>
                     <% end %>
                     
                 </div>

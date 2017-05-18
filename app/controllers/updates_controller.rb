@@ -1,18 +1,20 @@
 class UpdatesController < ApplicationController
     
-    #before_action :set_update
+    before_action :set_goal
     
     def new
+        @goal = Goal.find(params[:goal_id])
         @update = Update.new
     end
     
     def create
         @update = Update.new(update_params)
         @update.user_id = current_user.id
-        #@update.goal_id = @goal.id
+        @goal = Goal.find(params[:goal_id])
+        @update.goal_id = @goal.id
         if @update.save
             flash[:success] = "Your update has been added to your timeline"
-            redirect_to users_path
+            redirect_to goal_path(@goal)
         else
             flash[:danger] = @update.errors.full_messages.join(", ")
             render 'new'
@@ -63,8 +65,8 @@ class UpdatesController < ApplicationController
         end
     end
     
-    #def set_update
-    #    @update = Update.find(params[:id])
-    #end
+    def set_goal
+        @goal = Goal.find(params[:goal_id])
+    end
     
 end

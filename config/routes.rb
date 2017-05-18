@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   resources :goals do
     resources :comments, except: [:index]
-  end
-  resources :updates, except: [:index] do 
-    resources :comments, except: [:index]
+    resources :updates, except: [:index] do
+      resources :comments, except: [:index]
+    end
   end
 
 end

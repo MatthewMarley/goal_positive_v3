@@ -20,7 +20,7 @@
                 
                 <% if logged_in? && (current_user == goal.user) %>
                     <div class="user-show-updates">
-                        <small><%= link_to "Add an Update", new_update_path(goal) %></small>
+                        <small><%= link_to "Add an Update", new_goal_update_path(goal) %></small>
                     </div>
                 <% end %>
                 </div>
