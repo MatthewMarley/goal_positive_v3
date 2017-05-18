@@ -1,4 +1,4 @@
-<%= form_for [@goal, @update] do |f| %>
+<%= form_for [Update.new] do |f| %>
 
 <div class="form-group">
     <%= f.label :date %>
@@ -18,5 +18,8 @@
 <div class="form-group">
     <%= f.submit "Submit Update", class: 'btn btn-primary' %>
 </div>
+
+<%= f.hidden_field :goal_id %>
+
 
 <% end %>
