@@ -17,45 +17,7 @@
                 </div>
             <% end %>
         </div>
-        <h4 align="center">Updates - <h6 class="update-addition">
-            <%= link_to "Add an Update", new_goal_update_path(@goal) %></h6></h4>
-            
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordian" href="#collapseOne">
-                            Add an Update
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        
-                    </div>
-                </div>
-            </div>
-            
-            
-            
-        <% @goal.updates.each do |update| %>
-            <div class="well">
-                <strong>Title: </strong><%= update.title %>
-                <hr>
-                <%= update.update_description %>
-                <div class="show-update-links">
-                    <%= link_to "View Update", goal_update_path(@goal, update), class: 'btn btn-xs btn-primary' %>
-                    <% if logged_in? && current_user = update.user || current_user.admin? %>
-                        <%= link_to "Edit Update", edit_goal_update_path(@goal, update), class: 'btn btn-xs btn-warning' %>
-                        <%= link_to "Delete Update", goal_update_path(@goal, update), class: 'btn btn-xs btn-danger',
-                        method: :delete, data: { confirm: "Are you sure?" } %>
-                    <% end %>
-                    
-                </div>
-            </div>
-        <% end %>
-    </div>
-    
-    <div class="col-md-6">
+        
         <h4 align="center">Comments</h4>
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -71,6 +33,33 @@
                 </div>
             </div>
         </div>
+        
+        <% @goal.comments.each do |comment| %>
+            <div class="goal-comments">
+                <small><%= @goal.user.username %></small>
+                <br>
+                <%= comment.name %>
+                <hr>
+            </div>
+        <% end %>
     </div>
     
+    <div class="col-md-6">
+        <h4 align="center">Updates - <h6 class="update-addition"></h4>
+        <% @goal.updates.each do |update| %>
+            <div class="well">
+                <strong>Title: </strong><%= update.title %>
+                <hr>
+                <%= update.update_description %>
+                <div class="show-update-links">
+                    <%= link_to "View Update", goal_update_path(@goal, update), class: 'btn btn-xs btn-primary' %>
+                    <% if logged_in? && current_user = update.user || current_user.admin? %>
+                        <%= link_to "Edit Update", edit_goal_update_path(@goal, update), class: 'btn btn-xs btn-warning' %>
+                        <%= link_to "Delete Update", goal_update_path(@goal, update), class: 'btn btn-xs btn-danger',
+                        method: :delete, data: { confirm: "Are you sure?" } %>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
 </div>

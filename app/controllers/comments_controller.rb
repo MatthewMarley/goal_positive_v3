@@ -1,27 +1,31 @@
 class CommentsController < ApplicationController
     
-    #before_action :load_commentable
     
     def new
-        @goal = Goal.find(params[:goal_id])
         @commentable = find_commentable
         @comment = @commentable.comments.new
     end
     
     def create
-        @goal = Goal.find(params[:goal_id])
-        @commentable = find_commentable
-        @comment = @commentable.comments.new(comment_params)
+        
+        #if params[:update_id].present?
+            
+        if(params.has_key?(:goal_id) && params.has_key?(:update_id))
+            @update = Update.find(params[:update_id])
+            @comment = @update.comments.new(comment_params)
+        else
+            @commentable = find_commentable
+            @comment = @commentable.comments.new(comment_params)
+        end
+        
         if @comment.save
-            flash[:success] = "Comment Sent!"
+            flash[:success] = "Comment Sent"
             redirect_to :back
         else
             flash[:danger] = @comment.errors.full_messages
             render 'new'
         end
     end
-    
-    
     
     
     private
@@ -35,16 +39,8 @@ class CommentsController < ApplicationController
                 return $1.classify.constantize.find(value)
             end
         end
-        nil
     end
     
-    def set_update
-        @update = Update.find(params[:update_id]) 
-    end
-    
-    def set_goal
-        @goal = Goal.find(params[:goal_id]) 
-    end
     
     
 end
