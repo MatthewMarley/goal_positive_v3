@@ -42,8 +42,12 @@
             <li role="separator" class="divider"></li>
             <li><%= link_to "All Goals", goals_path %></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">My Goals: </a></li>
-            
+            <% if logged_in? && current_user.goals.count < 1 %>
+              <li><a href="#">No Goals Available: </a></li>
+            <% else %>
+              <li><a href="#">My Goals: </a></li>
+            <% end %>
+              
             <% if logged_in? %>
               <% current_user.goals.each do |goal| %>
                 <% if goal.user_id = current_user.id %>

@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     def create
         
         #if params[:update_id].present?
+        
             
         if(params.has_key?(:goal_id) && params.has_key?(:update_id))
             @update = Update.find(params[:update_id])

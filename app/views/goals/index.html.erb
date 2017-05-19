@@ -2,8 +2,17 @@
     <div class="col-md-6 col-md-offset-3">
         <% @goals.each do |goal| %>
             <div class="well">
-                <%= goal.name %>
-                <%= goal.description %>
+                <strong>User: </strong><%= goal.user.username %>
+                <hr>
+                <strong>Goal: </strong><%= goal.name %>
+                <div class="index-goal-links">
+                    <%= link_to "Show Goal", goal_path(goal), class: 'btn btn-xs btn-primary' %>
+                <% if logged_in? && (current_user == goal.user) ||  current_user.admin? %>
+                    <%= link_to "Edit Goal", edit_goal_path(goal), class: 'btn btn-xs btn-warning' %>
+                    <%= link_to "Delete Goal", goal_path(goal), method: :delete, 
+                    data: {confirm: "Are you sure?"}, class: 'btn btn-xs btn-danger' %>
+                <% end %>
+                </div>
             </div>
         <% end %>
     </div>
