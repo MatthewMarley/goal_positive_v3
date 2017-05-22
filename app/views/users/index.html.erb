@@ -1,9 +1,18 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
+        <h1 align="center">GoalPositive Users</h1>
         <% @users.each do |user| %>
             <div class="well">
                 <%= user.username %>
                 <%= user.email %>
+                <div class="users-index-buttons">
+                    <%= link_to "View Profile", user_path(user), class: 'btn btn-xs btn-primary' %>
+                    <% if logged_in? && current_user == user || current_user.admin? %>
+                        <%= link_to "Edit Profile", edit_user_path(user), class: 'btn btn-xs btn-warning' %>
+                        <%= link_to "Delete Profile", user_path(user), class: 'btn btn-xs btn-danger', 
+                                    method: :delete, data: {confirm: "Are you sure?"} %>
+                    <% end %>
+                </div>
             </div>
         <% end %>
     </div>
