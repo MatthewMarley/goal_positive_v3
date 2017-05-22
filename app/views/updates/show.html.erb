@@ -9,7 +9,13 @@
                     <%= link_to "Edit Update", edit_goal_update_path(@update), class: 'btn btn-xs btn-warning' %>
                     <%= link_to "Delete Update", goal_update_path(@update), class: 'btn btn-xs btn-danger', 
                         method: :delete, data: { confirm: "Are you sure?" } %>
+                    <% if logged_in? && (current_user == @goal.user) %>
+                        <div class="update-show-updates">
+                            <small><%= link_to "Add another update", new_goal_update_path(@goal) %></small>
+                        </div>
+                    <% end %>
                 <% end %>
+                
             </div>
         </div>
         

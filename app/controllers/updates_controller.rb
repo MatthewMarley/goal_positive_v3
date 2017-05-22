@@ -38,6 +38,7 @@ class UpdatesController < ApplicationController
     
     def show
         @update = Update.find(params[:id])
+        @goal = Goal.find(params[:goal_id])
         @comment = Comment.new
     end
 

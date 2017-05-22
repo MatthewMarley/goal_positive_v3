@@ -50,7 +50,7 @@
             <div class="well">
                 <strong>Title: </strong><%= update.title %>
                 <hr>
-                <%= update.update_description %>
+                <%= update.update_description.truncate_words(50) %>
                 <div class="show-update-links">
                     <%= link_to "View Update", goal_update_path(@goal, update), class: 'btn btn-xs btn-primary' %>
                     <% if logged_in? && current_user = update.user || current_user.admin? %>
