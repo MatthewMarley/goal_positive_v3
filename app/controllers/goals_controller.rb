@@ -19,7 +19,7 @@ class GoalsController < ApplicationController
             flash[:success] = "Your goal was successfully created!"
             redirect_to user_path(current_user)
         else
-            flash.now[:danger] = "Your goal was unable to save"
+            flash.now[:danger] = @goal.errors.full_messages.join(", ")
             render 'new'
         end
     end

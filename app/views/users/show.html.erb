@@ -1,12 +1,13 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <div class="well well-white">
-            <%= @user.username %>
-            <%= @user.email %>
+            <strong>Username: </strong><%= @user.username %>
+            <hr>
+            <strong>Email: </strong><%= @user.email %>
         </div>
         
         <% @user_goals.each do |goal| %>
-            <div class="well">
+            <div class="well well-border">
                 <strong>Goal: </strong><%= goal.name %>
                 <hr>
                 <strong>Description: </strong><%= goal.description %>
