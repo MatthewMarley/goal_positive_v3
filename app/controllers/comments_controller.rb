@@ -6,17 +6,17 @@ class CommentsController < ApplicationController
         @comment = @commentable.comments.new
     end
     
+    #@comment = @post.comments.create(comment_params.merge(user_id: current_user.id)) 
+    
     def create
         
-        #if params[:update_id].present?
-        
-            
+        @user = current_user
         if(params.has_key?(:goal_id) && params.has_key?(:update_id))
             @update = Update.find(params[:update_id])
-            @comment = @update.comments.new(comment_params)
+            @comment = @update.comments.new(comment_params.merge(user_id: current_user.id))
         else
             @commentable = find_commentable
-            @comment = @commentable.comments.new(comment_params)
+            @comment = @commentable.comments.new(comment_params.merge(user_id: current_user.id))
         end
         
         if @comment.save

@@ -36,7 +36,7 @@
         
         <% @goal.comments.each do |comment| %>
             <div class="goal-comments">
-                <small><b><%= @goal.user.username %>: </b></small>
+                <small><b><%= comment.user.username %>: </b></small>
                 <br>
                 <%= comment.name %>
                 <hr>

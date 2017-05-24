@@ -37,7 +37,7 @@
         
         <% @update.comments.each do |comment| %>
             <div class="update-comments">
-                <small><b><%= @update.user.username %>: </b></small>
+                <small><b><%= comment.user.username %>: </b></small>
                 <br>
                 <%= comment.name %>
                 <hr>
