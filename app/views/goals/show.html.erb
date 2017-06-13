@@ -14,6 +14,17 @@
                             <small><%= link_to "Add an Update", new_goal_update_path(@goal) %></small>
                         </div>
                     <% end %>
+                    <%= link_to like_goal_path(@goal), method: :put do %>
+                        <i class="fa fa-thumbs-o-up"></i>
+                        <%= @goal.get_upvotes.size %>
+                    <% end %>
+                    <%= link_to unlike_goal_path(@goal), method: :put do %>
+                        <i class="fa fa-thumbs-o-down"></i>
+                        <%= @goal.get_downvotes.size %>
+                    <% end %>
+                    
+                        
+                    <% end %>
                 </div>
             <% end %>
         </div>
@@ -58,6 +69,16 @@
                         <%= link_to "Delete Update", goal_update_path(@goal, update), class: 'btn btn-xs btn-danger',
                         method: :delete, data: { confirm: "Are you sure?" } %>
                     <% end %>
+                    <div class="voting">
+                        <%= link_to like_goal_update_path(@goal, update), method: :put do %>
+                            <i class="fa fa-thumbs-o-up"></i>
+                            <%= update.get_upvotes.size %>
+                        <% end %>
+                        <%= link_to unlike_goal_update_path(@goal, update), method: :put do %>
+                            <i class="fa fa-thumbs-o-down"></i>
+                            <%= update.get_downvotes.size %>
+                        <% end %>
+                    </div>
                 </div>
             </div>
         <% end %>

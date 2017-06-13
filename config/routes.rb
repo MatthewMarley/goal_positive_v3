@@ -8,8 +8,16 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :goals do
+    member do
+      put 'like', to: "goals#upvote"
+      put 'unlike', to: "goals#downvote"
+    end
     resources :comments, except: [:index]
     resources :updates, except: [:index] do
+      member do
+        put 'like', to: "updates#upvote"
+        put 'unlike', to: "updates#downvote"
+      end
       resources :comments, except: [:index]
     end
   end

@@ -14,4 +14,5 @@ class User < ActiveRecord::Base
               format: { with: VALID_EMAIL_REGEX }
     has_many :goals
     has_many :comments, :as => :commentable
+    validates_confirmation_of :password
 end

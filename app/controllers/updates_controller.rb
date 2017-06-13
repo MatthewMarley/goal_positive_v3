@@ -53,6 +53,19 @@ class UpdatesController < ApplicationController
         end
     end
     
+    def upvote
+        @goal = Goal.find(params[:goal_id])
+        @update = Update.find(params[:id])
+        @update.upvote_by current_user
+        redirect_to :back
+    end
+    
+    def downvote
+        @goal = Goal.find(params[:goal_id])
+        @update = Update.find(params[:id])
+        @update.downvote_by current_user
+        redirect_to :back
+    end
     
     private
     def update_params

@@ -35,6 +35,9 @@ gem 'bootstrap-will_paginate'
 # Use FontAwesome Sass gem for adding icons
 gem 'font-awesome-sass', '~> 4.7.0'
 
+# Use votable gem for voting
+gem 'acts_as_votable', '~> 0.10.0'
+
 # Use Hirb gem for 
 gem 'hirb', '~> 0.7.3'
 

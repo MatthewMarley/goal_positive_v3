@@ -3,8 +3,8 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-h1, h2, h3 {
-    font-family: 'Open Sans', sans-serif;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quicksand', sans-serif;
 }
 
 .navbar-default {
@@ -42,7 +42,7 @@ h1, h2, h3 {
 .goal-show-updates {
     text-align: right;
     display: inline;
-    padding-left: 280px;
+    float: right;
 }
 
 .update-show-updates {
@@ -64,4 +64,49 @@ h1, h2, h3 {
 
 .well-border {
     border: solid black 1px;
+}
+
+.voting {
+    display: inline;
+    float: right;
+}
+
+.goal-title { 
+    margin-top: -12px;
+}
+
+.user-goals-description {
+    padding-top: 15px;
+}
+
+.hr-user-goals {
+    height: 1px;
+    border: 0;
+    color: #333;
+    background-color: #333;
+}
+
+
+.user-goals-mouse-events > div {
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+    &:hover {
+        background-color: #26AEFF;
+        color: white;
+    }
+    //&.color-light-blue {
+    //        color: #26AEFF;
+    //    }
+}
+
+.user-goals-mouse-events > div > h6 {
+    opacity: 0;
+}
+
+.color-light-blue {
+    color: #26AEFF;
+    &:hover {
+        color: white;
+    }
 }

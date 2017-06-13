@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
     
-    before_action :set_goal, only: [:show, :edit, :update, :destroy]
+    before_action :set_goal, only: [:show, :edit, :update, :destroy, :like, :unlike]
     before_action :require_user, except: [:index, :show]
     before_action :require_same_user, only: [:edit, :update, :destroy]
    
@@ -52,6 +52,19 @@ class GoalsController < ApplicationController
             flash[:danger] = "Goal unable to be destroyed"
             redirect_to user_path(current_user)
         end
+    end
+    
+    
+    def upvote
+        @goal = Goal.find(params[:id])
+        @goal.upvote_by current_user
+        redirect_to :back
+    end
+    
+    def downvote
+        @goal = Goal.find(params[:id])
+        @goal.downvote_by current_user
+        redirect_to :back
     end
     
     

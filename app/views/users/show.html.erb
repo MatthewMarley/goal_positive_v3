@@ -1,4 +1,54 @@
 <div class="row">
+    <div class="col-md-8">
+        <h3><strong>Username: </strong><%= @user.username %></h3></br>
+        <h3><strong>Email: </strong><%= @user.email %></h3>
+    </div>
+</div>
+<br>
+
+<div class="user-goals-mouse-events">
+    <% @user.goals.each do |goal| %>
+        <div class="user-goals-hover-<%= goal.id %>">
+            <div class="row">
+                <div class="span12">
+                    <div class="col-md-4">
+                        <h2 class="color-light-blue"><%= goal.name %></h2>
+                    </div>
+                    <div class="col-md-8 user-goals-description">
+                        <h4><%= goal.description %></h4>
+                    </div>
+                </div>
+            </div>
+            <h6 class="hide-username-<%= goal.id %>"><%= @user.username %></h6>
+        </div>
+    <% end %>
+</div>
+
+
+<br>
+<br>
+<br>
+
+<ul class="goal-ulist">
+    <% @user.goals.each do |goal| %>
+        <div class="row">
+            <div class="col-md-8">
+                <%= link_to goal_path(goal), class: "goal-list-items" do %>
+                        <li onmouseover="changeTo(this)" onmouseout="changeBack(this)" class="goal-list">
+                            <h2 class="goal-title"><%= goal.name %></h2>
+                            <span class="goal-description"><%= goal.description %></span>
+                            <span class="user-goal-links show-goal"><%= link_to "Show Goal", goal_path(goal) %></span>
+                            <span class="user-goal-links edit-goal"><%= link_to "Edit Goal", edit_goal_path(goal) %></span>
+                            <span class="user-goal-links delete-goal"><%= link_to "Delete Goal", goal_path(goal), method: :delete, data: {confirm: "Are you sure?"} %></span>
+                        </li>
+                <% end %>
+                <hr>
+            </div>
+        </div>
+    <% end %>
+</ul>
+
+<div class="row">
     <div class="col-md-6 col-md-offset-3">
         <div class="well well-white">
             <strong>Username: </strong><%= @user.username %>
