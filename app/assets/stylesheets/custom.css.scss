@@ -87,25 +87,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-.user-goals-mouse-events > div {
-    border-bottom-style: solid;
-    border-bottom-color: black;
-    border-bottom-width: 1px;
-    &:hover {
-        background-color: #26AEFF;
-        color: white;
-    }
-    //&.color-light-blue {
-    //        color: #26AEFF;
-    //    }
+div[class^=user-goals-hover] {
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
+  &:hover {
+    background-color: #26AEFF;
+  }
 }
 
-.user-goals-mouse-events > div > h6 {
-    opacity: 0;
-}
-
-.color-light-blue {
-    color: #26AEFF;
+div[class^=user-goals-text-elements] {
+    color: black;
     &:hover {
         color: white;
     }
