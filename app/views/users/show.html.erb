@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-8">
-        <h3><strong>Username: </strong><%= @user.username %></h3></br>
-        <h3><strong>Email: </strong><%= @user.email %></h3>
+        <h3><strong>Username: </strong><span class="user-show-titles"><%= @user.username %></span></h3></br>
+        <h3><strong>Email: </strong><span class="user-show-titles"><%= @user.email %></span></h3>
     </div>
 </div>
 <br>
@@ -10,14 +10,12 @@
     <% @user.goals.each do |goal| %>
         <div class="user-goals-hover">
             <%= link_to goal_path(goal) do %>
-                <div class="user-goals-text-elements">
-                    <div class="row user-goals-hover-total">
-                        <div class="col-md-4 user-goals-name">
-                            <h2 class="color-light-blue"><%= goal.name %></h2>
-                        </div>
-                        <div class="col-md-8 user-goals-description">
-                            <h4 class="test"><%= goal.description %></h4>
-                        </div>
+                <div class="row user-goals-text-elements">
+                    <div class="col-md-4 user-goals-name">
+                        <h2 class="color-light-blue"><%= goal.name %></h2>
+                    </div>
+                    <div class="col-md-8 user-goals-description">
+                        <h4><%= goal.description %></h4>
                     </div>
                 </div>
             <% end %>

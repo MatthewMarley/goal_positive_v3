@@ -1,18 +1,17 @@
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
-        
         <% @goals.each do |goal| %>
             <div class="user-goals-hover-<%=goal.id%>">
                 <%= link_to goal_path(goal) do %>
-                    <div class="user-goals-text-elements-<%=goal.id%>">
-                        <div class="row user-goals-hover-<%=goal.id%>">
+                    <div class="user-goals-text-elements">
+                        <div class="row goals-index-hover">
                             <div class="col-md-4">
-                                <h2 class="color-light-blue"><%= goal.name %></h2>
+                                <h1 class="color-light-blue"><%= goal.name %></h1>
                             </div>
-                            <div class="col-md-4 index-goals-description">
+                            <div class="col-md-4 goal-index-description">
                                 <h4><%= goal.description %></h4>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 goal-index-username">
                                 <h4><%= goal.user.username %></h4>
                             </div>
                         </div>
@@ -20,8 +19,5 @@
                 <% end %>
             </div>
         <% end %>
-        
-        
-        
     </div>
 </div>
