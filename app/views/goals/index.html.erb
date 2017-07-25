@@ -1,29 +1,27 @@
 <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-10 col-md-offset-1">
+        
         <% @goals.each do |goal| %>
-            <div class="well">
-                <strong>User: </strong><%= goal.user.username %>
-                <hr>
-                <strong>Goal: </strong><%= goal.name %>
-                <div class="index-goal-links">
-                    <%= link_to "Show Goal", goal_path(goal), class: 'btn btn-xs btn-primary' %>
-                    <% if logged_in? && (current_user == goal.user) ||  current_user.admin? %>
-                        <%= link_to "Edit Goal", edit_goal_path(goal), class: 'btn btn-xs btn-warning' %>
-                        <%= link_to "Delete Goal", goal_path(goal), method: :delete, 
-                        data: {confirm: "Are you sure?"}, class: 'btn btn-xs btn-danger' %>
-                    <% end %>
-                    <div class="voting">
-                        <%= link_to like_goal_path(goal), method: :put do %>
-                            <i class="fa fa-thumbs-o-up"></i>
-                            <%= goal.get_upvotes.size %>
-                        <% end %>
-                        <%= link_to unlike_goal_path(goal), method: :put do %>
-                            <i class="fa fa-thumbs-o-down"></i>
-                            <%= goal.get_downvotes.size %>
-                        <% end %>
+            <div class="user-goals-hover-<%=goal.id%>">
+                <%= link_to goal_path(goal) do %>
+                    <div class="user-goals-text-elements-<%=goal.id%>">
+                        <div class="row user-goals-hover-<%=goal.id%>">
+                            <div class="col-md-4">
+                                <h2 class="color-light-blue"><%= goal.name %></h2>
+                            </div>
+                            <div class="col-md-4 index-goals-description">
+                                <h4><%= goal.description %></h4>
+                            </div>
+                            <div class="col-md-4">
+                                <h4><%= goal.user.username %></h4>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                <% end %>
             </div>
         <% end %>
+        
+        
+        
     </div>
 </div>

@@ -8,20 +8,20 @@
 
 <div class="user-goals-mouse-events">
     <% @user.goals.each do |goal| %>
-    <div class="user-goals-hover-<%=goal.id%>">
-        <%= link_to goal_path(goal) do %>
-            <div class="user-goals-text-elements-<%=goal.id%>">
-                <div class="row user-goals-hover-<%=goal.id%>">
-                    <div class="col-md-4">
-                        <h2 class="color-light-blue"><%= goal.name %></h2>
-                    </div>
-                    <div class="col-md-8 user-goals-description">
-                        <h4><%= goal.description %></h4>
+        <div class="user-goals-hover">
+            <%= link_to goal_path(goal) do %>
+                <div class="user-goals-text-elements">
+                    <div class="row user-goals-hover-total">
+                        <div class="col-md-4 user-goals-name">
+                            <h2 class="color-light-blue"><%= goal.name %></h2>
+                        </div>
+                        <div class="col-md-8 user-goals-description">
+                            <h4 class="test"><%= goal.description %></h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <% end %>
-    </div>
+            <% end %>
+        </div>
     <% end %>
 </div>
 </br>

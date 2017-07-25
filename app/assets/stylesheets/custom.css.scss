@@ -77,6 +77,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .user-goals-description {
     padding-top: 15px;
+    opacity: 0;
+}
+
+.index-goals-description {
+    padding-top: 12px;
 }
 
 .hr-user-goals {
@@ -101,4 +106,9 @@ div[class^=user-goals-text-elements] {
     &:hover {
         color: white;
     }
+}
+
+.verticalLine {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
