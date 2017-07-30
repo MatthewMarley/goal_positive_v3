@@ -3,6 +3,15 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Quicksand', sans-serif;
 }
@@ -22,6 +31,13 @@ h1, h2, h3, h4, h5, h6 {
         color: white;
         opacity: 0.75;
     }
+}
+
+.footer-class {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
 }
 
 .well-white {
@@ -145,12 +161,12 @@ div[class^=user-goals-hover] {
     height: 200px;
     border-radius: 25px;
     /* Safari, iOS, Andriod */
-    -webkit-transition: background-color 0.25s, color 0.25s;
+    -webkit-transition: background-color 0.5s, color 0.5s;
     /* Firefox */
-    -moz-transition:    background-color 0.25s, color 0.25s;
-    -ms-transition:     background-color 0.25s, color 0.25s;
-    -o-transition:      background-color 0.25s, color 0.25s;
-    transition:         background-color 0.25s, color 0.25s;
+    -moz-transition:    background-color 0.5s, color 0.5s;
+    -ms-transition:     background-color 0.5s, color 0.5s;
+    -o-transition:      background-color 0.5s, color 0.5s;
+    transition:         background-color 0.5s, color 0.5s;
     &:hover {
         background-color: #f2f2f7;
         color: black;
@@ -162,11 +178,11 @@ div[class^=user-goals-hover] {
     text-align: center;
 }
 
-.h3-about-create {
+.h3-about-create, .h3-about-share, .h3-about-help {
     padding-bottom: 15px;
 }
 
-.slider {
+.slider-create, .slider-share, .slider-help {
     //position: absolute;
     bottom: 0;
     left: 0;
@@ -175,15 +191,3 @@ div[class^=user-goals-hover] {
     width: 0%;
 }
 
-/*a {
-        color: lime;
-        -webkit-transition: color 1s;
-        -moz-transition:    color 1s;
-        -ms-transition:     color 1s;
-        -o-transition:      color 1s;
-        transition:         color 1s;
-    }
-    
-    a:hover {
-        color: red;
-    } */

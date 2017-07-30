@@ -1,14 +1,15 @@
-Updates
+Features
 
-in Goal#show
- - Only admins and the owner of the goal can edit or delete updates
- - The owner of the goal should be the only one allowed to create a update
-   There should also be a link for this on the goal-show page
- - the update_description field should show 100 characters before fading behind ... Users
-   will need to go into the update#show action to read the whole update (or have the page extended?)
- - Users should be able to jump into any update (taking them to the updates#show action
-   (I need to create this in the routes file)
+Allow people to follow friends
+- Need a search bar to search to usernames
+- Must link the accounts so that their home-page is full of their own goals,
+and friends goals
 
-in Update#show
- - The goal owner and admins should be able to edit and delete the status update
- 
+
+Add a category for public and private goals
+- When creating the goal, they have the option to either keep the goal as private
+or make it public.
+- If private only they and their friends can see it. (Maybe include an option
+to have it super private where only they can see it)
+- If made public is can be included in the random goals displayed on the home
+page
