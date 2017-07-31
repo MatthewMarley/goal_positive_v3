@@ -1,1 +1,8 @@
 <h1 align="center">Home Page</h1>
+
+<% @goals.each do |goal| %>
+    <h1><%= link_to "#{goal.name}", goal_path(goal) %></h1>
+    <p><%= link_to "#{goal.description}", goal_path(goal) %></p>
+    <p><%= "#{goal.status}" %></p>
+    <hr>
+<% end %>
