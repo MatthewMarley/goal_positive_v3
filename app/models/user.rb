@@ -14,5 +14,14 @@ class User < ActiveRecord::Base
               format: { with: VALID_EMAIL_REGEX }
     has_many :goals
     has_many :comments, :as => :commentable
+    has_many :friendships
+    has_many :friends, :through => :friendships
     validates_confirmation_of :password
+    
+    
+    
+    def friend_with?(other_user)
+        friendships.find_by(friend_id: other_user.id) 
+    end
+    
 end

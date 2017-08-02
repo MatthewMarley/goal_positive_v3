@@ -21,5 +21,6 @@ Rails.application.routes.draw do
       resources :comments, except: [:index]
     end
   end
+  resources :friendships
 
 end

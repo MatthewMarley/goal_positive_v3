@@ -9,6 +9,7 @@ and friends goals
 Add a category for public and private goals
 - When creating the goal, they have the option to either keep the goal as private
 or make it public. -- DONE
+    - Add in semi-private so friends can see them, but not strangers?
 - If private only they and their friends can see it. (Maybe include an option
 to have it super private where only they can see it)
 - If made public is can be included in the random goals displayed on the home
