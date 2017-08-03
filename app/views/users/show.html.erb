@@ -23,6 +23,8 @@
 
 <div class="user-goals-mouse-events">
     <% @user.goals.each do |goal| %>
+        <% if goal.status == "Public" || current_user.friends.exists?(goal.user) && goal.status == "Semi Private" || goal.user == current_user %>
+    
         <div class="user-goals-hover">
             <%= link_to goal_path(goal) do %>
                 <div class="row user-goals-text-elements">
@@ -35,6 +37,7 @@
                 </div>
             <% end %>
         </div>
+        <% end %>
     <% end %>
 </div>
 </br>

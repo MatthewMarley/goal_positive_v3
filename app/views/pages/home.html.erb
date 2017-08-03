@@ -1,18 +1,20 @@
 <h1 align="center">Home Page</h1>
 
-<% @goals.each do |goal| %>
-    <h1><%= link_to "#{goal.name}", goal_path(goal) %></h1>
-    <p><%= link_to "#{goal.description}", goal_path(goal) %></p>
-    <p><%= "#{goal.status}" %></p>
-    <hr>
-<% end %>
-
 <% @all_goals.each do |goal| %>
-    <!-- Use == for equality in conditional statements such as if, unless, etc -->
-    <% if goal.status == "Public" || current_user.friends.exists?(goal.user) %>
-        <h1><%= link_to "#{goal.name}", goal_path(goal) %></h1>
-        <p><%= link_to "#{goal.description}", goal_path(goal) %></p>
-        <p><%= "#{goal.status}" %></p>
-        <hr>
+    <% if logged_in? %>
+        <!-- Use == for equality in conditional statements such as if, unless, etc -->
+        <% if goal.status == "Public" || current_user.friends.exists?(goal.user) && goal.status == "Semi Private" || goal.user == current_user %>
+            <h1><%= link_to "#{goal.name}", goal_path(goal) %></h1>
+            <p><%= link_to "#{goal.description}", goal_path(goal) %></p>
+            <p><%= "#{goal.status}" %></p>
+            <hr>
+        <% end %>
+    <% else %>
+        <% if goal.status == "Public" %>
+            <h1><%= link_to "#{goal.name}", goal_path(goal) %></h1>
+            <p><%= link_to "#{goal.description}", goal_path(goal) %></p>
+            <p><%= "#{goal.status}" %></p>
+            <hr>
+        <% end %>
     <% end %>
 <% end %>
