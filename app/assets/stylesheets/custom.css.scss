@@ -195,6 +195,13 @@ div[class^=user-goals-hover] {
     list-style-type: none;
 }
 
-.navbar-search {
-       
+.search-bar-title {
+    text-align: center;
+    margin-top: -3px;
+    margin-bottom: -3px;
+}
+
+.user-index-search {
+    border: 1px solid black;
+    background-color: white;
 }

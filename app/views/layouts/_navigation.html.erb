@@ -55,20 +55,6 @@
           </ul>
         </li>
         
-      <form class="navbar-form navbar-left navbar-search">
-        <!-- form_tag over form_for as we do not want to edit any model's attributes -->
-        <!-- We declare the get method because by default the form_tag submits a POST request -->
-        <%= form_tag(users_path, :method => "get", id: "search-form") do %>
-        <!-- params[:search] allows the search query to persist in the search box after page load -->
-          <%= text_field_tag :search, params[:search], placeholder: "Search Users", class: 'form-control' %>
-          <!-- :name => nil means the url will be cleaner. No "commit=Search" -->
-          <%= submit_tag "Search", :name => nil %>
-        <% end %>
-      </form>
-        
-        
-        
-        
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>

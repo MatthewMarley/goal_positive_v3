@@ -1,6 +1,30 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <h1 align="center">GoalPositive Users</h1>
+        <hr>
+        
+        <div class="well">
+            <h3 class="search-bar-title"><a data-toggle="collapse" data-parent="#accordian" href="#collapseOne">
+                <% if params[:search].nil? %>
+                    Search for Users
+                <% else %>
+                    Search for Users - <%= params[:search] %>
+                <% end %>
+            </a></h3>
+            
+            <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <form class="users-index-search">
+                        <%= form_tag(users_path, :method => "get", id: "search-form") do %>
+                            <%= text_field_tag :search, params[:search], placeholder: "Search Users", class: "form-control" %>
+                            <%= submit_tag "Search", :name => nil, class: "form-control" %>
+                        <% end %>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        
         <% @users.each do |user| %>
             <div class="well">
                 <%= user.username %>
@@ -22,6 +46,10 @@
                     <% end %>
                 </div>
             </div>
+        <% end %>
+        
+        <% if @users.blank? %>
+            <h4 align="center">There are no usernames containing the term <%= params[:search] %></h4>
         <% end %>
     </div>
 </div>

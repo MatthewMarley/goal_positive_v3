@@ -5,6 +5,28 @@
     </div>
     <% if @user == current_user %>
         <div class="col-md-2">
+            
+            
+                <h3 class="search-bar-title"><a data-toggle="collapse" data-parent="#accordian" href="#collapseOne">
+                    Your Friends
+                </a></h3>
+                <hr>
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <% for friendship in @user.friendships %>
+                            <li class="user-show-friends-list"><%= friendship.friend.username %>
+                            <span> - </span>
+                            <small class="user-show-remove-friend">
+                                <%= link_to "Remove", friendship, :method => :delete %>
+                            </small></li>
+                            <hr>
+                        <% end %>
+                    </div>
+                </div>
+            
+
+            
+            
             <h2 align="center">Your Friends</h2>
             <hr>
             <ul>
@@ -14,7 +36,13 @@
                     <small class="user-show-remove-friend">
                         <%= link_to "Remove", friendship, :method => :delete %>
                     </small></li>
-                    
+                <% end %>
+            </ul>
+            <h3>You've been added by</h3>
+            <hr>
+            <ul>
+                <% for user in @user.inverse_friends %>
+                    <li><%= user.username %></li>
                 <% end %>
             </ul>
         </div>

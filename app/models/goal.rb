@@ -7,4 +7,9 @@ class Goal < ActiveRecord::Base
     validates :user_id, presence: true
     validates :status, presence: true
     acts_as_votable
+    
+    def self.search(search)
+        where("name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%")    
+    end
 end
+

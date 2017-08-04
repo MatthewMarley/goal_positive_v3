@@ -6,6 +6,11 @@ class GoalsController < ApplicationController
    
     def index
         @goals = Goal.all
+        if params[:search]
+            @goals = Goal.search(params[:search]).order("created_at DESC")
+        else
+            @goals = Goal.all.order("created_at DESC")
+        end
     end
     
     def new
