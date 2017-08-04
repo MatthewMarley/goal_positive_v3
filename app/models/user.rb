@@ -24,4 +24,8 @@ class User < ActiveRecord::Base
         friendships.find_by(friend_id: other_user.id) 
     end
     
+    def self.search(search)
+        where("username LIKE ", "%#{search}%") 
+    end
+
 end
