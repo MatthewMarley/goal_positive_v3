@@ -1,18 +1,11 @@
 Features
 
-Allow people to follow friends
-- Need a search bar to search to usernames
-- Must link the accounts so that their home-page is full of their own goals,
-and friends goals
+Pagination on Goals index & User index
 
+Button under home page to start exploring
+    - Dropdown appears with choices?
+    
+All Pages
+- More extensive footer 
 
-Add a category for public and private goals
-- When creating the goal, they have the option to either keep the goal as private
-or make it public. -- DONE
-    - Add in semi-private so friends can see them, but not strangers? -- DONE
-- If private only they and their friends can see it. (Maybe include an option
-to have it super private where only they can see it) -- 
-- If made public is can be included in the random goals displayed on the home
-page -- DONE
-- When displayed on the home page, do it in order of newest to oldest,
-using 'created_at' date for reference -- DONE
+Home Page

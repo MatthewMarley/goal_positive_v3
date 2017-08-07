@@ -27,17 +27,7 @@
 
             
             
-            <h2 align="center">Your Friends</h2>
-            <hr>
-            <ul>
-                <% for friendship in @user.friendships %>
-                    <li class="user-show-friends-list"><%= friendship.friend.username %>
-                    <span> - </span>
-                    <small class="user-show-remove-friend">
-                        <%= link_to "Remove", friendship, :method => :delete %>
-                    </small></li>
-                <% end %>
-            </ul>
+            
             <h3>You've been added by</h3>
             <hr>
             <ul>

@@ -1,9 +1,30 @@
 <h1 align="center">Home Page</h1>
 
+<br>
+
+<div class="home-page-explore">
+    <h3 class="home-page-explore-two"><a data-toggle="collapse" data-parent="#accordian" href="#collapseOne">
+        <div class="plz">Explore GoalPositive</div>
+    </a></h3>
+    
+    <div id="collapseOne" class="panel-collapse collapse">
+        <div class="panel-body explore-buttons-div">
+            <%= link_to "Explore Goals", goals_path, class: 'btn btn-primary home-' %>
+            <%= link_to "Find Friends", users_path, class: 'btn btn-primary' %>
+            <%= link_to "About Us", about_path, class: 'btn btn-primary' %>
+        </div>
+    </div>
+</div>
+
+
+
+<hr>
+
 <% @all_goals.each do |goal| %>
     <% if logged_in? %>
         <!-- Use == for equality in conditional statements such as if, unless, etc -->
-        <% if goal.status == "Public" || current_user.friends.exists?(goal.user) && goal.status == "Semi Private" || goal.user == current_user %>
+        <!-- Used goal.user.id as without id we get the error DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `exists?` in console -->
+        <% if goal.status == "Public" || current_user.friends.exists?(goal.user.id) && goal.status == "Semi Private" || goal.user == current_user %>
             <h1><%= link_to "#{goal.name}", goal_path(goal) %></h1>
             <p><%= link_to "#{goal.description}", goal_path(goal) %></p>
             <p><%= "#{goal.status}" %></p>
