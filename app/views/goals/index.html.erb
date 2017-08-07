@@ -24,23 +24,21 @@
             </div>
         </div>
         <% @goals.each do |goal| %>
-            <div class="user-goals-hover-<%=goal.id%>">
-                <%= link_to goal_path(goal) do %>
-                    <div class="user-goals-text-elements">
-                        <div class="row goals-index-hover">
-                            <div class="col-md-4">
-                                <h1 class="color-light-blue"><%= goal.name %></h1>
-                            </div>
-                            <div class="col-md-4 goal-index-description">
-                                <h4><%= goal.description %></h4>
-                            </div>
-                            <div class="col-md-4 goal-index-username">
-                                <h4><%= goal.user.username %></h4>
-                            </div>
+            <%= link_to goal_path(goal) do %>
+                <div class="user-goals-text-elements">
+                    <div class="row goals-index-hover">
+                        <div class="col-md-4">
+                            <h1 class="color-light-blue"><%= goal.name %></h1>
+                        </div>
+                        <div class="col-md-4 goal-index-description">
+                            <h4><%= goal.description %></h4>
+                        </div>
+                        <div class="col-md-4 goal-index-username">
+                            <h4><%= goal.user.username %></h4>
                         </div>
                     </div>
-                <% end %>
-            </div>
+                </div>
+            <% end %>
         <% end %>
     </div>
 </div>

@@ -66,16 +66,12 @@ h1, h2, h3, h4, h5, h6 {
     padding-left: 420px;
 }
 
-.show-update-links, .update-show-buttons, .users-index-buttons {
+.show-update-links, .update-show-buttons, .users-index-buttons, .index-goal-links {
     padding-top: 10px;
 }
 
 .update-comments {
     margin-top: 5px;
-}
-
-.index-goal-links {
-    padding-top: 10px;
 }
 
 .well-border {
@@ -108,19 +104,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-div[class^=user-goals-hover] {
+.user-goals-hover, .goals-index-hover {
   border-bottom-style: solid;
   border-bottom-color: black;
   border-bottom-width: 1px;
   &:hover {
-    background-color: #26AEFF;
+    background-color: #f2f2f7;
   }
 }
 
 .user-goals-text-elements {
     color: black;
     &:hover {
-        color: white;
+        //color: white;
     }
 }
 

@@ -9,3 +9,7 @@ All Pages
 - More extensive footer 
 
 Home Page
+
+
+
+- Make the friends look better on the users show page

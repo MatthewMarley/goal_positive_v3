@@ -13,26 +13,29 @@
                 <hr>
                 <div id="collapseOne" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <% for friendship in @user.friendships %>
-                            <li class="user-show-friends-list"><%= friendship.friend.username %>
-                            <span> - </span>
-                            <small class="user-show-remove-friend">
-                                <%= link_to "Remove", friendship, :method => :delete %>
-                            </small></li>
-                            <hr>
+                        <% @user.friendships.each do |friendship| %>
+                            <% @user.inverse_friendships.each do |inverse| %>
+                                <% if friendship.friend_id == inverse.user_id %>
+                                    <li class="user-show-friends-list"><%= friendship.friend.username %>
+                                    <span> - </span>
+                                    <small class="user-show-remove-friend">
+                                        <%= link_to "Remove", friendship, :method => :delete %>
+                                    </small></li>
+                                <% end %>
+                            <% end %>
                         <% end %>
                     </div>
                 </div>
             
-
-            
-            
-            
-            <h3>You've been added by</h3>
+            <h3 align="center">Pending Requests</h3>
             <hr>
             <ul>
-                <% for user in @user.inverse_friends %>
-                    <li><%= user.username %></li>
+                <% @user.inverse_friendships.each do |inverse| %>
+                    <% @user.friendships.each do |friendship| %>
+                        <% if friendship.friend_id == inverse.user_id %>
+                            <li><%= friendship.friend.username %></li>
+                        <% end %>
+                    <% end %>
                 <% end %>
             </ul>
         </div>
