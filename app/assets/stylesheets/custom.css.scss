@@ -17,7 +17,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-default {
-    background-color: #002C7F;
+    // Gradient provided by ui gradients
+    background: #0072ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #00c6ff, #0072ff); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #00c6ff , #0072ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .navbar-default .navbar-brand {
@@ -87,7 +90,8 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: -12px;
 }
 
-.user-goals-description, .goal-index-description, .goal-index-username {
+.user-goals-description, .user-goals-username, .goal-index-description, .goal-index-username, 
+.home-goal-description, .home-goal-username {
     padding-top: 15px;
     opacity: 0;
 }
@@ -103,20 +107,33 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #333;
 }
 
+.user-goals-mouse-events, .goals-index-top-div, .home-page-goals-outer-div {
+    border-top: solid grey 1px;
+}
 
-.user-goals-hover, .goals-index-hover {
+.user-goals-hover, .goals-index-hover, .home-page-goals, .home-page-goals {
+  color: black;
   border-bottom-style: solid;
   border-bottom-color: grey;
   border-bottom-width: 1px;
   transition: all .15s ease;
+  padding-top: 10px;
+  padding-bottom: 16px;
   &:hover {
-    background-color: #f2f2f7;
+    background: -webkit-linear-gradient(to left, #00c6ff, #0072ff);
+    background: linear-gradient(to left, #00c6ff , #0072ff);
+    color: white;
     border-color: transparent;
     transform: translateY(-3px);
   }
 }
 
-
+.user-goals-text-elements {
+    color: black;
+    &:hover {
+        color: white;
+    }
+}
 
 
 /*.project-link {
@@ -149,12 +166,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-.user-goals-text-elements {
-    color: black;
-    &:hover {
-        //color: white;
-    }
-}
+
 
 .verticalLine {
     border-left: 1px solid black;
@@ -246,5 +258,4 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     width: 100%;
 }
-
 

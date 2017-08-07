@@ -16,26 +16,43 @@
     </div>
 </div>
 
+<br>
+<br>
 
-
-<hr>
-
-<% @all_goals.each do |goal| %>
-    <% if logged_in? %>
-        <!-- Use == for equality in conditional statements such as if, unless, etc -->
-        <!-- Used goal.user.id as without id we get the error DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `exists?` in console -->
-        <% if goal.status == "Public" || current_user.friends.exists?(goal.user.id) && goal.status == "Semi Private" || goal.user == current_user %>
-            <h1><%= link_to "#{goal.name}", goal_path(goal) %></h1>
-            <p><%= link_to "#{goal.description}", goal_path(goal) %></p>
-            <p><%= "#{goal.status}" %></p>
-            <hr>
+<div class="row">
+    <div class="home-page-goals-outer-div">
+        <% @all_goals.each do |goal| %>
+            <% if logged_in? %>
+                <!-- Use == for equality in conditional statements such as if, unless, etc -->
+                <!-- Used goal.user.id as without id we get the error DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `exists?` in console -->
+                <% if goal.status == "Public" || current_user.friends.exists?(goal.user.id) && goal.status == "Semi Private" || goal.user == current_user %>
+                    <%= link_to goal_path(goal) do %>
+                        <div class="row home-page-goals">
+                            <div class="col-md-4 col-md-offset-1 home-goal-name">
+                                <h2><%= goal.name %></h2>
+                            </div>
+                            <div class="col-md-4 home-goal-description">
+                                <h4><%= goal.description %></h4>
+                            </div>
+                            <div class="col-md-3 home-goal-username">
+                                <h4><%= goal.user.username %></h4>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <%= link_to goal_path(goal) do %>
+                    <div class="home-page-goals">
+                        <% if goal.status == "Public" %>
+                            <div class="home-page-goals">
+                                <h2><%= goal.name %></h2>
+                                <h4><%= goal.description %></h4>
+                                <h4><%= goal.user.username %></h4>
+                            </div>
+                        <% end %>
+                    </div>
+                <% end %>
+            <% end %>
         <% end %>
-    <% else %>
-        <% if goal.status == "Public" %>
-            <h1><%= link_to "#{goal.name}", goal_path(goal) %></h1>
-            <p><%= link_to "#{goal.description}", goal_path(goal) %></p>
-            <p><%= "#{goal.status}" %></p>
-            <hr>
-        <% end %>
-    <% end %>
-<% end %>
+    </div>
+</div>
