@@ -106,12 +106,48 @@ h1, h2, h3, h4, h5, h6 {
 
 .user-goals-hover, .goals-index-hover {
   border-bottom-style: solid;
-  border-bottom-color: black;
+  border-bottom-color: grey;
   border-bottom-width: 1px;
+  transition: all .15s ease;
   &:hover {
     background-color: #f2f2f7;
+    border-color: transparent;
+    transform: translateY(-3px);
   }
 }
+
+
+
+
+/*.project-link {
+  margin: 10px 20px 0 0;
+  white-space: nowrap;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 14px;
+  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  text-decoration: none;
+  transition: all .15s ease;
+  color: #fff;
+  background: $purple;
+  font-family: 'Camphor', Open Sans, Segoe UI, sans-serif;
+  font-size: 0.9em;
+  font-weight: 600;
+
+  &:hover {
+    background: $fadedBlue;
+    transform: translateY(-1px);
+    box-shadow: 0 7px 14px rgba(50,50,93,.1),
+                0 3px 6px rgba(0,0,0,.08);
+  }
+} */
+
+
+
 
 .user-goals-text-elements {
     color: black;
@@ -210,3 +246,5 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     width: 100%;
 }
+
+

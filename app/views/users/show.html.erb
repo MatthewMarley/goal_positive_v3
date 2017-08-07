@@ -1,12 +1,11 @@
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8 col-md-offset-1">
         <h3><strong>Username: </strong><span class="user-show-titles"><%= @user.username %></span></h3></br>
         <h3><strong>Email: </strong><span class="user-show-titles"><%= @user.email %></span></h3>
     </div>
-    <% if @user == current_user %>
-        <div class="col-md-2">
-            
-            
+    <div class="col-md-3">
+        <% if @user == current_user %>
+            <div class="col-md-3">
                 <h3 class="search-bar-title"><a data-toggle="collapse" data-parent="#accordian" href="#collapseOne">
                     Your Friends
                 </a></h3>
@@ -26,43 +25,37 @@
                         <% end %>
                     </div>
                 </div>
-            
-            <h3 align="center">Pending Requests</h3>
-            <hr>
-            <ul>
-                <% @user.inverse_friendships.each do |inverse| %>
-                    <% @user.friendships.each do |friendship| %>
-                        <% if friendship.friend_id == inverse.user_id %>
-                            <li><%= friendship.friend.username %></li>
-                        <% end %>
-                    <% end %>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
+            </div>
+        <% end %>
+    </div>
 </div>
 
-<div class="user-goals-mouse-events">
-    <% @user.goals.each do |goal| %>
-        <% if goal.status == "Public" || current_user.friends.exists?(goal.user) && goal.status == "Semi Private" || goal.user == current_user %>
-    
-        <div class="user-goals-hover">
-            <%= link_to goal_path(goal) do %>
-                <div class="row user-goals-text-elements">
-                    <div class="col-md-4 user-goals-name">
-                        <h2 class="color-light-blue"><%= goal.name %></h2>
-                    </div>
-                    <div class="col-md-8 user-goals-description">
-                        <h4><%= goal.description %></h4>
-                    </div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="user-goals-mouse-events">
+            <% @user.goals.each do |goal| %>
+                <% if goal.status == "Public" || current_user.friends.exists?(goal.user) && goal.status == "Semi Private" || goal.user == current_user %>
+                <div class="user-goals-hover">
+                    <%= link_to goal_path(goal) do %>
+                        <div class="row user-goals-text-elements">
+                            <div class="col-md-4 user-goals-name">
+                                <h2 class="color-light-blue"><%= goal.name %></h2>
+                            </div>
+                            <div class="col-md-8 user-goals-description">
+                                <h4><%= goal.description %></h4>
+                            </div>
+                        </div>
+                    <% end %>
                 </div>
+                <% end %>
             <% end %>
         </div>
-        <% end %>
-    <% end %>
+    </div>
 </div>
 </br>
 </br>
 </br>
+
+
 
 
