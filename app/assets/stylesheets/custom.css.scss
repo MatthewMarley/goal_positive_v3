@@ -26,6 +26,11 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-default .navbar-brand {
     color: gold;
     opacity: 0;
+    &:hover {
+        color: gold;
+        // Was being overidden by JQuery FadeTo opacity 1.
+        opacity: 0.75 !important;
+    }
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -259,3 +264,15 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
 }
 
+.signup-form {
+    opacity: 0;
+}
+
+.signup-form-inner-div, .login-form-inner-div {
+    transition: all .15s ease;
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 7px 14px rgba(50,50,93,.1),
+                0 3px 6px rgba(0,0,0,.08);
+    }
+}

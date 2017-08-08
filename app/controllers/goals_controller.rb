@@ -98,6 +98,7 @@ class GoalsController < ApplicationController
             flash[:success] = "Okay just this once"
         else
             flash[:danger] = "Access denied"
+            redirect_to root_path
         end
     end
     

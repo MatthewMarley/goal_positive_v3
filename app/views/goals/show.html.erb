@@ -5,43 +5,42 @@
             <strong>Goal: </strong><%= @goal.name %>
             <hr>
             <strong>Description: </strong><%= @goal.description %>
-            <!-- current_user.admin == nil when not session is active. This means admin? is an undefined method -->
-            <% if @goal.user = current_user || current_user.admin? || @goal.status == 'Public' %>
-                <div class="show-goal-links">
-                    <%= link_to "Edit Goal", edit_goal_path(@goal), class: 'btn btn-xs btn-primary' %>
-                    <%= link_to "Delete Goal", goal_path(@goal), class: 'btn btn-xs btn-danger', method: :delete %>
-                    <% if logged_in? && (current_user == @goal.user) %>
-                        <div class="goal-show-updates">
-                            <small><%= link_to "Add an Update", new_goal_update_path(@goal) %></small>
-                        </div>
-                    <% end %>
-                    <%= link_to like_goal_path(@goal), method: :put do %>
-                        <i class="fa fa-thumbs-o-up"></i>
-                        <%= @goal.get_upvotes.size %>
-                    <% end %>
-                    <%= link_to unlike_goal_path(@goal), method: :put do %>
-                        <i class="fa fa-thumbs-o-down"></i>
-                        <%= @goal.get_downvotes.size %>
-                    <% end %>
-                </div>
-            <% end %>
+            <div class="show-goal-links">
+                <%= link_to "Edit Goal", edit_goal_path(@goal), class: 'btn btn-xs btn-primary' %>
+                <%= link_to "Delete Goal", goal_path(@goal), class: 'btn btn-xs btn-danger', method: :delete %>
+                <% if logged_in? && (current_user == @goal.user) %>
+                    <div class="goal-show-updates">
+                        <small><%= link_to "Add an Update", new_goal_update_path(@goal) %></small>
+                    </div>
+                <% end %>
+                <%= link_to like_goal_path(@goal), method: :put do %>
+                    <i class="fa fa-thumbs-o-up"></i>
+                    <%= @goal.get_upvotes.size %>
+                <% end %>
+                <%= link_to unlike_goal_path(@goal), method: :put do %>
+                    <i class="fa fa-thumbs-o-down"></i>
+                    <%= @goal.get_downvotes.size %>
+                <% end %>
+            </div>
         </div>
         
         <h4 align="center">Comments</h4>
-        <div class="panel panel-default">
-            <div class="panel-heading well-border">
-                <h4="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordian" href="#collapseOne">
-                        Click to reply
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <%= render 'comments/goal_form' %>
+        <% if logged_in? %>
+            <div class="panel panel-default">
+                <div class="panel-heading well-border">
+                    <h4="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordian" href="#collapseOne">
+                            Click to reply
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <%= render 'comments/goal_form' %>
+                    </div>
                 </div>
             </div>
-        </div>
+        <% end %>
         
         <% @goal.comments.each do |comment| %>
             <div class="goal-comments">

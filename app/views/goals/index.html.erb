@@ -31,18 +31,38 @@
 
 <div class="row goals-index-top-div">
     <% @goals.each do |goal| %>
-        <%= link_to goal_path(goal) do %>
-            <div class="row goals-index-hover">
-                <div class="col-md-4 col-md-offset-1">
-                    <h1 class="color-light-blue"><%= goal.name %></h1>
-                </div>
-                <div class="col-md-4 goal-index-description">
-                    <h4><%= goal.description %></h4>
-                </div>
-                <div class="col-md-3 goal-index-username">
-                    <h4><%= goal.user.username %></h4>
-                </div>
-            </div>
+        <% if logged_in? %>
+            <% if goal.status == "Public" || current_user.friends.exists(goal.user.id) && goal.status == "Semi Private" || goal.user == current_user %>
+                <%= link_to goal_path(goal) do %>
+                    <div class="row goals-index-hover">
+                        <div class="col-md-4 col-md-offset-1">
+                            <h1 class="color-light-blue"><%= goal.name %></h1>
+                        </div>
+                        <div class="col-md-4 goal-index-description">
+                            <h4><%= goal.description %></h4>
+                        </div>
+                        <div class="col-md-3 goal-index-username">
+                            <h4><%= goal.user.username %></h4>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+        <% else %>
+            <% if goal.status == "Public" %>
+                <%= link_to goal_path(goal) do %>
+                    <div class="row goals-index-hover">
+                        <div class="col-md-4 col-md-offset-1">
+                            <h1 class="color-light-blue"><%= goal.name %></h1>
+                        </div>
+                        <div class="col-md-4 goal-index-description">
+                            <h4><%= goal.description %></h4>
+                        </div>
+                        <div class="col-md-3 goal-index-username">
+                            <h4><%= goal.user.username %></h4>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
         <% end %>
     <% end %>
 </div>
