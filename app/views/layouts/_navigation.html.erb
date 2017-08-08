@@ -24,8 +24,8 @@
           <ul class="dropdown-menu">
             <% if logged_in? %>
               <li><%= link_to "My Account", user_path(current_user) %></li>
+              <li role="separator" class="divider"></li>
             <% end %>
-            <li role="separator" class="divider"></li>
             <li><%= link_to "All Users", users_path %></li>
           </ul>
         </li>
@@ -37,10 +37,11 @@
             <li><%= link_to "Create a New Goal", new_goal_path %></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to "All Goals", goals_path %></li>
-            <li role="separator" class="divider"></li>
             <% if logged_in? && current_user.goals.count < 1 %>
+              <li role="separator" class="divider"></li>  
               <li><a href="#">No Goals Available: </a></li>
-            <% else %>
+            <% elsif logged_in? && current_user.goals.count >= 1 %>
+              <li role="separator" class="divider"></li>
               <li><a href="#">My Goals: </a></li>
             <% end %>
               
@@ -51,7 +52,6 @@
                 <% end %>
               <% end %>
             <% end %>
-              
           </ul>
         </li>
         

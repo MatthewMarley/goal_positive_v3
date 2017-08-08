@@ -7,6 +7,7 @@ Button under home page to start exploring
     
 All Pages
 - More extensive footer 
+- Add pagination for users and goals (or a self loader at the bottom?)
 
 Home Page
 
@@ -17,6 +18,9 @@ Users Show Page
         - Maybe say "You are already friends" if they are
     - Text hover elements only applied on inner div, need to work for whole div...
     - Make the friends option look better
+    
+Users Index Page
+    - For users page have in going 3 across the screen, then new row etc.
         
         
 Goals Index Page

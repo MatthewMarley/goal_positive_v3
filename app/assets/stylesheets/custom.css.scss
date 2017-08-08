@@ -264,7 +264,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
 }
 
-.signup-form {
+.signup-form, .login-form {
     opacity: 0;
 }
 
@@ -272,6 +272,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: all .15s ease;
     &:hover {
         transform: translateY(-2px);
+        // 0px out right, 7px downward, 14px blur distance?
         box-shadow: 0 7px 14px rgba(50,50,93,.1),
                 0 3px 6px rgba(0,0,0,.08);
     }
