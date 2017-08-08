@@ -268,7 +268,7 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0;
 }
 
-.signup-form-inner-div, .login-form-inner-div {
+.signup-form-inner-div, .login-form-inner-div, .user-index-wells {
     transition: all .15s ease;
     &:hover {
         transform: translateY(-2px);

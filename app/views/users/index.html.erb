@@ -23,36 +23,37 @@
                 </div>
             </div>
         </div>
-        
-        <div class="row">
-        <% @users.each do |user| %>
-            
-                <div class="col-md-3">
-            
-                    <div class="well">
-                        <%= user.username %>
-                        <%= user.email %>
-                        <div class="users-index-buttons">
-                            <%= link_to "View Profile", user_path(user), class: 'btn btn-xs btn-primary' %>
-                            <% if logged_in? %>
-                                <% if current_user == user || current_user.admin? %>
-                                    <%= link_to "Edit Profile", edit_user_path(user), class: 'btn btn-xs btn-warning' %>
-                                    <%= link_to "Delete Profile", user_path(user), class: 'btn btn-xs btn-danger', 
-                                                method: :delete, data: {confirm: "Are you sure?"} %>
-                                <% end %>
-                                <% if !current_user.friend_with?(user) %>
-                                    <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
-                                <% end %>
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
-            
-        <% end %>
-        </div>
-        
-        <% if @users.blank? %>
-            <h4 align="center">There are no usernames containing the term <%= params[:search] %></h4>
-        <% end %>
     </div>
 </div>
+        
+<div class="row">
+    <% @users.each_with_index do |user, index| %>
+        <div class="col-md-3">
+            <%= link_to user_path(user) do %>
+            <div class="well user-index-wells">
+                    <%= user.username %>
+                    <!-- <%= index %> -->
+                    <%= user.email %>
+                    <div class="users-index-buttons">
+                        <%= link_to "View Profile", user_path(user), class: 'btn btn-xs btn-primary' %>
+                        <% if logged_in? %>
+                            <% if current_user == user || current_user.admin? %>
+                                <%= link_to "Edit Profile", edit_user_path(user), class: 'btn btn-xs btn-warning' %>
+                                <%= link_to "Delete Profile", user_path(user), class: 'btn btn-xs btn-danger', 
+                                            method: :delete, data: {confirm: "Are you sure?"} %>
+                            <% end %>
+                            <% if !current_user.friend_with?(user) %>
+                                <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+                            <% end %>
+                        <% end %>
+                    </div>
+                
+            </div>
+            <% end %>
+        </div>
+    <% end %>
+</div>
+        
+<% if @users.blank? %>
+    <h4 align="center">There are no usernames containing the term <%= params[:search] %></h4>
+<% end %>
