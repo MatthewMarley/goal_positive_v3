@@ -268,12 +268,21 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0;
 }
 
-.signup-form-inner-div, .login-form-inner-div, .user-index-wells {
+.signup-form-inner-div, .login-form-inner-div, .user-index-well {
     transition: all .15s ease;
     &:hover {
         transform: translateY(-2px);
         // 0px out right, 7px downward, 14px blur distance?
         box-shadow: 0 7px 14px rgba(50,50,93,.1),
                 0 3px 6px rgba(0,0,0,.08);
+    }
+}
+
+.user-index-path {
+    text-align: center;
+    color: black;
+    &:hover {
+        color: black;
+        text-decoration: none;
     }
 }
