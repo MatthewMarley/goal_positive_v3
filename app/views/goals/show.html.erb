@@ -5,7 +5,8 @@
             <strong>Goal: </strong><%= @goal.name %>
             <hr>
             <strong>Description: </strong><%= @goal.description %>
-            <% if @goal.user = current_user || current_user.admin? %>
+            <!-- current_user.admin == nil when not session is active. This means admin? is an undefined method -->
+            <% if @goal.user = current_user || current_user.admin? || @goal.status == 'Public' %>
                 <div class="show-goal-links">
                     <%= link_to "Edit Goal", edit_goal_path(@goal), class: 'btn btn-xs btn-primary' %>
                     <%= link_to "Delete Goal", goal_path(@goal), class: 'btn btn-xs btn-danger', method: :delete %>

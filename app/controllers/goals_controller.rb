@@ -3,6 +3,7 @@ class GoalsController < ApplicationController
     before_action :set_goal, only: [:show, :edit, :update, :destroy, :like, :unlike]
     before_action :require_user, except: [:index, :show]
     before_action :require_same_user, only: [:edit, :update, :destroy]
+    before_action :security, only: [:show]
    
     def index
         @goals = Goal.all
@@ -85,8 +86,18 @@ class GoalsController < ApplicationController
     
     def require_same_user
         if current_user != @goal.user and !current_user.admin?
-            flash[:danger] = "YOu do not have permission to amend this goal"
+            flash[:danger] = "You do not have permission to amend this goal"
             redirect_to root_path
+        end
+    end
+    
+    def security
+        if logged_in? && (@goal.user == current_user || @goal.status == 'Public')
+            flash[:success] = "Access Granted"
+        elsif !logged_in? && @goal.status == 'Public'
+            flash[:success] = "Okay just this once"
+        else
+            flash[:danger] = "Access denied"
         end
     end
     

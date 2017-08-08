@@ -41,16 +41,20 @@
                     <% end %>
                 <% end %>
             <% else %>
-                <%= link_to goal_path(goal) do %>
-                    <div class="home-page-goals">
-                        <% if goal.status == "Public" %>
-                            <div class="home-page-goals">
+                <% if goal.status == "Public" %>
+                    <%= link_to goal_path(goal) do %>
+                        <div class="row home-page-goals">
+                            <div class="col-md-4 col-md-offset-1 home-goal-name">
                                 <h2><%= goal.name %></h2>
+                            </div>
+                            <div class="col-md-4 home-goal-description">
                                 <h4><%= goal.description %></h4>
+                            </div>
+                            <div class="col-md-3 home-goal-username">
                                 <h4><%= goal.user.username %></h4>
                             </div>
-                        <% end %>
-                    </div>
+                        </div>
+                    <% end %>
                 <% end %>
             <% end %>
         <% end %>

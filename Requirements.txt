@@ -16,10 +16,14 @@ Users Show Page
     - Add an option to add as friend if not already
         - Maybe say "You are already friends" if they are
     - Text hover elements only applied on inner div, need to work for whole div...
+    - Make the friends option look better
         
         
 Goals Index Page
     - Make it so your own goals appear slightly differently to help with differentiation?
 
 
-- Make the friends look better on the users show page
+Log In Page
+    - Restructure it so it looks better
+
+Create somewhere to toggle admin status
