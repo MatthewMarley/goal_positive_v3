@@ -8,6 +8,9 @@ Button under home page to start exploring
 All Pages
 - More extensive footer 
 - Add pagination for users and goals (or a self loader at the bottom?)
+- If you try to perform an action, it should show a message like on spotify when you try and add 
+a song to a playlist twice... original screen opacity dips slightly, message drops in from top and fades
+into view
 
 Home Page
 
@@ -31,3 +34,6 @@ Log In Page
     - Restructure it so it looks better
 
 Create somewhere to toggle admin status
+
+DB Seed
+    - Seed some db values using this rather than creating individual goals.
