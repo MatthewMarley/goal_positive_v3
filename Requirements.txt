@@ -37,3 +37,5 @@ Create somewhere to toggle admin status
 
 DB Seed
     - Seed some db values using this rather than creating individual goals.
+    
+WILL PAGINATE.

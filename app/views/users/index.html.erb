@@ -39,11 +39,13 @@
                         <p><%= user.email %></p>
                     </div>
                     <div class="user-index-friends">
-                        <% if !current_user.friend_with?(user) %>
-                            <small>
-                            <%= link_to "Add Friend", friendships_path(:friend_id => user),
-                                        :method => :post %>
-                            </small>
+                        <% if logged_in? %>
+                            <% if !current_user.friend_with?(user) %>
+                                <small>
+                                <%= link_to "Add Friend", friendships_path(:friend_id => user),
+                                            :method => :post %>
+                                </small>
+                            <% end %>
                         <% end %>
                     </div>
                 </div>

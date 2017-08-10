@@ -5,14 +5,40 @@ class GoalsController < ApplicationController
     before_action :require_same_user, only: [:edit, :update, :destroy]
     before_action :security, only: [:show]
    
+   
+    #@goals = @goals.where(:status => "Semi Private") || @goals.where(:status => "Public")
+    #<% if goal.status == "Public" || (current_user.friend_with?(goal.user) && goal.status == "Semi Private") || goal.user == current_user %>
+    
     def index
         @goals = Goal.all
-        if params[:search]
-            @goals = Goal.search(params[:search]).order("created_at DESC")
+        if logged_in?
+            #@goals = Goal.where(status: ["Semi Private", "Public", "Private"]).order("created_at DESC")
+            #@goals = Goal.where("status = ? OR status = ?", "Semi Private", "Public")
+            #@goals = Goal.where(user_id: current_user.id)
+            #@goals = Goal.where(current_user.friend_with?(Goal.user.id))
+            @goals = Goal.all
+            
+            @goals.each do |goal|
+                goals = Goal.where
+            end
         else
-            @goals = Goal.all.order("created_at DESC")
+            @goals = Goal.all.where(:status => "Public")
         end
+        
+        #@goals = Goal.paginate(page: params[:page], per_page: 5)
+        #if params[:search]
+        #    @goals = Goal.search(params[:search]).paginate(page: params[:page], per_page: 5).order("created_at DESC")
+        #else
+        #    @goals = Goal.all.paginate(page: params[:page], per_page: 5).order("created_at DESC")
+        #end
     end
+    
+    
+    @categories.each do |category|
+      tposts = Post.where("category_id = ? and institution_id = ?", category, @institution).order("created_at DESC")
+      @posts += tposts if tposts
+    end
+    
     
     def new
         @goal = Goal.new

@@ -11,5 +11,10 @@ class Goal < ActiveRecord::Base
     def self.search(search)
         where("name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%")    
     end
+    
+    def friends_with?(other_user)
+        friendships.find_by(friend_id: other_user.id) 
+    end
+    
 end
 

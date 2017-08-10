@@ -28,7 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Bootstrap for Sass gem, used for front-end UI and layout
 gem 'bootstrap-sass', '~> 3.3.7'
 
-# Gems for pagination
+# Gems for pagination and infinite scrolling
 gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate'
 
