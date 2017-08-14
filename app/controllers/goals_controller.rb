@@ -4,39 +4,31 @@ class GoalsController < ApplicationController
     before_action :require_user, except: [:index, :show]
     before_action :require_same_user, only: [:edit, :update, :destroy]
     before_action :security, only: [:show]
-   
-   
-    #@goals = @goals.where(:status => "Semi Private") || @goals.where(:status => "Public")
-    #<% if goal.status == "Public" || (current_user.friend_with?(goal.user) && goal.status == "Semi Private") || goal.user == current_user %>
     
     def index
-        @goals = Goal.all
         if logged_in?
-            #@goals = Goal.where(status: ["Semi Private", "Public", "Private"]).order("created_at DESC")
-            #@goals = Goal.where("status = ? OR status = ?", "Semi Private", "Public")
-            #@goals = Goal.where(user_id: current_user.id)
-            #@goals = Goal.where(current_user.friend_with?(Goal.user.id))
-            @goals = Goal.all
-            
+            @goals = Goal.all.order("created_at DESC")
+            #@goals = Goal.paginate(page: params[:page], per_page: 5).order("created_at DESC")
+            @filtered_goals = []
             @goals.each do |goal|
-                goals = Goal.where
+                if goal.status == "Public" || current_user.friend_with?(goal.user) && goal.status == "Semi Private" || goal.user == current_user
+                    @filtered_goals.push(goal)
+                end
             end
+            
+            #@paginated_goals = @filtered_goals.paginate
+            
+            #@paginated_goals = WillPaginate::Collection.create(current_page, per_page, @filtered_goals.length) do |pager|
+            #    pager.replace @filtered_goals
+            #end
+            
+            @filtered_goals = @filtered_goals.paginate(page: params[:page], per_page: 10)
+            
+            #@paginated_goals = @filtered_goals.paginate(page: params[:page], per_page: 5, total: @filtered_goals.length)
+            
         else
             @goals = Goal.all.where(:status => "Public")
         end
-        
-        #@goals = Goal.paginate(page: params[:page], per_page: 5)
-        #if params[:search]
-        #    @goals = Goal.search(params[:search]).paginate(page: params[:page], per_page: 5).order("created_at DESC")
-        #else
-        #    @goals = Goal.all.paginate(page: params[:page], per_page: 5).order("created_at DESC")
-        #end
-    end
-    
-    
-    @categories.each do |category|
-      tposts = Post.where("category_id = ? and institution_id = ?", category, @institution).order("created_at DESC")
-      @posts += tposts if tposts
     end
     
     

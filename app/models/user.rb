@@ -23,7 +23,6 @@ class User < ActiveRecord::Base
     validates_confirmation_of :password
     
     
-    
     def friend_with?(other_user)
         friendships.find_by(friend_id: other_user.id) 
     end

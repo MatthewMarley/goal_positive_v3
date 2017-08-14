@@ -28,6 +28,7 @@ Users Index Page
         
 Goals Index Page
     - Make it so your own goals appear slightly differently to help with differentiation?
+    - Can't see unless logged in (as same as home page)
 
 
 Log In Page
