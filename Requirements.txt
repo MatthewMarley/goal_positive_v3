@@ -41,4 +41,8 @@ Create somewhere to toggle admin status
 DB Seed
     - Seed some db values using this rather than creating individual goals.
     
+Sign Up Page
+    - Password confirmation -> This shouldn't allow for different passwords on log in!
+
+    
 WILL PAGINATE.

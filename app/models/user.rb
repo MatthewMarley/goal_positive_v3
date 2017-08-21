@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
               uniqueness: { case_sensitive: false },
               length: { maximum: 105 },
               format: { with: VALID_EMAIL_REGEX }
+    validates :password, confirmation: true, presence: true, length: { minimum: 6, maximum: 50 }
+    
     has_many :goals
     has_many :comments, :as => :commentable
     

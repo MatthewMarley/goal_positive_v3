@@ -21,7 +21,8 @@ class UsersController < ApplicationController
             flash[:success] = "Welcome to GoalPositive #{@user.username}"
             redirect_to root_path
         else
-            flash[:error] = "Unable to sign up for GoalPositive"
+            #flash[:danger] = "Unable to sign up for GoalPositive"
+            flash[:danger] = @user.errors.full_messages.join(", ")
             render 'new'
         end
     end
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
     
     private
     def user_params
-        params.require(:user).permit(:email, :username, :password)
+        params.require(:user).permit(:email, :username, :password, :password_confirmation)
     end
     
     

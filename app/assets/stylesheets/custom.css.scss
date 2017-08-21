@@ -299,6 +299,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-#character-counter {
+#new-goal-character-counter, #signup-form-character-counter {
     float: right;
+    margin-right: 5px;
 }
