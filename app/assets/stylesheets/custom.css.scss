@@ -63,15 +63,8 @@ h1, h2, h3, h4, h5, h6 {
     padding-left: 200px;
 }
 
-.goal-show-updates {
-    text-align: right;
-    display: inline;
+.goal-show-updates, .update-show-updates {
     float: right;
-}
-
-.update-show-updates {
-    display: inline;
-    padding-left: 420px;
 }
 
 .show-update-links, .update-show-buttons, .users-index-buttons, .index-goal-links {
@@ -299,7 +292,15 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-#new-goal-character-counter, #signup-form-character-counter {
+#new-goal-character-counter, #signup-form-character-counter, #new-update-character-counter {
     float: right;
     margin-right: 5px;
+}
+
+.goal-show-votes {
+    float: right;
+}
+
+.goal-show-well {
+    padding-bottom: 28px;
 }

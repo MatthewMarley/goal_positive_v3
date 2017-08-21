@@ -103,7 +103,7 @@ class GoalsController < ApplicationController
     end
     
     def security
-        if logged_in? && (@goal.user == current_user || @goal.status == 'Public')
+        if logged_in? && (@goal.user == current_user || current_user.friend_with?(@goal.user) && @goal.status == "Semi Private" || @goal.status == 'Public')
             flash[:success] = "Access Granted"
         elsif !logged_in? && @goal.status == 'Public'
             flash[:success] = "Okay just this once"

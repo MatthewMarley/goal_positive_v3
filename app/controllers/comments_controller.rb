@@ -34,6 +34,7 @@ class CommentsController < ApplicationController
         params.require(:comment).permit(:name) 
     end
     
+    # What does this do?
     def find_commentable
         params.each do |name, value|
             if name =~ /(.+)_id$/

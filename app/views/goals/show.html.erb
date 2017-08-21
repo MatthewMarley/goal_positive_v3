@@ -1,27 +1,32 @@
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-5 col-md-offset-1">
         <h4 align="center">Goal</h4>
-        <div class="well well-border">
+        <div class="well well-border goal-show-well">
             <strong>Goal: </strong><%= @goal.name %>
             <hr>
             <strong>Description: </strong><%= @goal.description %>
             <div class="show-goal-links">
-                <%= link_to "Edit Goal", edit_goal_path(@goal), class: 'btn btn-xs btn-primary' %>
-                <%= link_to "Delete Goal", goal_path(@goal), class: 'btn btn-xs btn-danger', method: :delete %>
                 <% if logged_in? && (current_user == @goal.user) %>
-                    <div class="goal-show-updates">
-                        <small><%= link_to "Add an Update", new_goal_update_path(@goal) %></small>
-                    </div>
+                    <%= link_to "Edit Goal", edit_goal_path(@goal), class: 'btn btn-xs btn-primary' %>
+                    <%= link_to "Delete Goal", goal_path(@goal), class: 'btn btn-xs btn-danger', method: :delete %>
+                    
                 <% end %>
-                <%= link_to like_goal_path(@goal), method: :put do %>
-                    <i class="fa fa-thumbs-o-up"></i>
-                    <%= @goal.get_upvotes.size %>
-                <% end %>
-                <%= link_to unlike_goal_path(@goal), method: :put do %>
-                    <i class="fa fa-thumbs-o-down"></i>
-                    <%= @goal.get_downvotes.size %>
-                <% end %>
+                <div class="goal-show-votes">
+                    <%= link_to like_goal_path(@goal), method: :put do %>
+                        <i class="fa fa-thumbs-o-up"></i>
+                        <%= @goal.get_upvotes.size %>
+                    <% end %>
+                    <%= link_to unlike_goal_path(@goal), method: :put do %>
+                        <i class="fa fa-thumbs-o-down"></i>
+                        <%= @goal.get_downvotes.size %>
+                    <% end %>
+                </div>
             </div>
+            <% if logged_in? && (current_user == @goal.user) %>
+                <div class="goal-show-updates">
+                    <small><%= link_to "Add an Update", new_goal_update_path(@goal) %></small>
+                </div>
+            <% end %>
         </div>
         
         <h4 align="center">Comments</h4>
@@ -52,7 +57,7 @@
         <% end %>
     </div>
     
-    <div class="col-md-6">
+    <div class="col-md-5">
         <h4 align="center">Updates <h6 class="update-addition"></h4>
         <% @goal.updates.each do |update| %>
             <div class="well well-border">

@@ -31,6 +31,9 @@ Goals Index Page
     - Make it so your own goals appear slightly differently to help with differentiation?
     - Can't see unless logged in (as same as home page) -> Surely the home page should be seeable
     when not logged in?
+    
+Goals Show Page
+    - Show who the goal belongs to
 
 
 Log In Page
@@ -42,7 +45,6 @@ DB Seed
     - Seed some db values using this rather than creating individual goals.
     
 Sign Up Page
-    - Password confirmation -> This shouldn't allow for different passwords on log in!
 
     
 WILL PAGINATE.
