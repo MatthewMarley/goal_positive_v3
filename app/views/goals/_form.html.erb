@@ -2,7 +2,8 @@
 
     <div class="form-group">
         <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control', placeholder: 'Enter the title of your goal' %>
+        <%= f.text_field :name, class: 'form-control', id: 'character-field', :maxLength => 50, placeholder: 'Enter the title of your goal' %>
+        <span id="character-counter">0/50</span>
     </div>
     <div class="form-group">
         <%= f.label :description %>

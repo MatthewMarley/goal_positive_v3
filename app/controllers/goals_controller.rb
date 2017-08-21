@@ -1,7 +1,7 @@
 class GoalsController < ApplicationController
     
     before_action :set_goal, only: [:show, :edit, :update, :destroy, :like, :unlike]
-    before_action :require_user, except: [:index, :show]
+    before_action :require_user, except: [:show]
     before_action :require_same_user, only: [:edit, :update, :destroy]
     before_action :security, only: [:show]
     

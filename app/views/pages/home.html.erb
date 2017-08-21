@@ -21,42 +21,22 @@
 
 <div class="row">
     <div class="home-page-goals-outer-div">
-        <% @all_goals.each do |goal| %>
-            <% if logged_in? %>
-                <!-- Use == for equality in conditional statements such as if, unless, etc -->
-                <!-- Used goal.user.id as without id we get the error DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `exists?` in console -->
-                <% if goal.status == "Public" || current_user.friends.exists?(goal.user.id) && goal.status == "Semi Private" || goal.user == current_user %>
-                    <%= link_to goal_path(goal) do %>
-                        <div class="row home-page-goals">
-                            <div class="col-md-4 col-md-offset-1 home-goal-name">
-                                <h2><%= goal.name %></h2>
-                            </div>
-                            <div class="col-md-4 home-goal-description">
-                                <h4><%= goal.description %></h4>
-                            </div>
-                            <div class="col-md-3 home-goal-username">
-                                <h4><%= goal.user.username %></h4>
-                            </div>
-                        </div>
-                    <% end %>
-                <% end %>
-            <% else %>
-                <% if goal.status == "Public" %>
-                    <%= link_to goal_path(goal) do %>
-                        <div class="row home-page-goals">
-                            <div class="col-md-4 col-md-offset-1 home-goal-name">
-                                <h2><%= goal.name %></h2>
-                            </div>
-                            <div class="col-md-4 home-goal-description">
-                                <h4><%= goal.description %></h4>
-                            </div>
-                            <div class="col-md-3 home-goal-username">
-                                <h4><%= goal.user.username %></h4>
-                            </div>
-                        </div>
-                    <% end %>
-                <% end %>
+        <% @filtered_goals.each do |goal| %>
+            <%= link_to goal_path(goal) do %>
+                <div class="row home-page-goals">
+                    <div class="col-md-4 col-md-offset-1 home-goal-name">
+                        <h2><%= goal.name %></h2>
+                    </div>
+                    <div class="col-md-4 home-goal-description">
+                        <h4><%= goal.description %></h4>
+                    </div>
+                    <div class="col-md-3 home-goal-username">
+                        <h4><%= goal.user.username %></h4>
+                    </div>
+                </div>
             <% end %>
         <% end %>
     </div>
 </div>
+
+<%= will_paginate @filtered_goals %>

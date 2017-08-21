@@ -95,12 +95,12 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: -12px;
 }
 
-.goal-index-description, .goal-index-username {
-    padding-top: 18px;
+.goal-index-description, .goal-index-username, .home-goal-description, .home-goal-username {
+    padding-top: 16px;
 }
 
-.user-goals-description, .user-goals-username, .home-goal-description, .home-goal-username {
-    padding-top: 15px;
+.user-goals-description, .user-goals-username {
+    padding-top: 16px;
     opacity: 0;
 }
 
@@ -297,4 +297,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .user-index-friends {
     text-align: center;
+}
+
+#character-counter {
+    float: right;
 }
