@@ -7,25 +7,18 @@ class GoalsController < ApplicationController
     
     def index
         if logged_in?
-            @goals = Goal.all.order("created_at DESC")
-            #@goals = Goal.paginate(page: params[:page], per_page: 5).order("created_at DESC")
-            @filtered_goals = []
-            @goals.each do |goal|
-                if goal.status == "Public" || current_user.friend_with?(goal.user) && goal.status == "Semi Private" || goal.user == current_user
-                    @filtered_goals.push(goal)
+            if params[:search]
+                @filtered_goals = Goal.search(params[:search]).order("created_at DESC")
+            else
+                @goals = Goal.all.order("created_at DESC")
+                @filtered_goals = []
+                @goals.each do |goal|
+                    if goal.status == "Public" || current_user.friend_with?(goal.user) && goal.status == "Semi Private" || goal.user == current_user
+                        @filtered_goals.push(goal)
+                    end
                 end
+                @filtered_goals = @filtered_goals.paginate(page: params[:page], per_page: 10)
             end
-            
-            #@paginated_goals = @filtered_goals.paginate
-            
-            #@paginated_goals = WillPaginate::Collection.create(current_page, per_page, @filtered_goals.length) do |pager|
-            #    pager.replace @filtered_goals
-            #end
-            
-            @filtered_goals = @filtered_goals.paginate(page: params[:page], per_page: 10)
-            
-            #@paginated_goals = @filtered_goals.paginate(page: params[:page], per_page: 5, total: @filtered_goals.length)
-            
         else
             @goals = Goal.all.where(:status => "Public")
         end

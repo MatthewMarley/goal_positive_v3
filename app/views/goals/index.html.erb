@@ -5,7 +5,7 @@
         
         <div class="well">
             <h3 class="search-bar-title"><a data-toggle="collapse" data-parent="#accordian" href="#collapseOne">
-                <% if params[:search].nil? %>
+                <% if params[:search].nil? || params[:search] == "" %>
                     Search for Goals
                 <% else %>
                     Search for Goals - <%= params[:search] %>
@@ -49,4 +49,4 @@
     <% end %>
 </div>
 
-<!-- <%= will_paginate @filtered_goals %> -->
+    <%= will_paginate @filtered_goals %>

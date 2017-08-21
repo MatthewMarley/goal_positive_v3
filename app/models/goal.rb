@@ -12,6 +12,11 @@ class Goal < ActiveRecord::Base
         where("name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%")    
     end
     
+    #def self.search(search, page)
+    #    paginate :per_page => 5, :page => page,
+    #    :conditions => ["name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%"]
+    #end
+    
     def friends_with?(other_user)
         friendships.find_by(friend_id: other_user.id) 
     end
