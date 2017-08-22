@@ -60,7 +60,7 @@
     <div class="col-md-5">
         <h4 align="center">Updates <h6 class="update-addition"></h4>
         <% @goal.updates.each do |update| %>
-            <div class="well well-border">
+            <div class="well well-border goal-show-update-well">
                 <strong>Title: </strong><%= update.title %>
                 <hr>
                 <%= update.update_description.truncate_words(50) %>

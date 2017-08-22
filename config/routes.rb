@@ -12,7 +12,9 @@ Rails.application.routes.draw do
       put 'like', to: "goals#upvote"
       put 'unlike', to: "goals#downvote"
     end
-    resources :comments, except: [:index]
+    resources :comments, except: [:index] do
+      resources :comments, except: [:index]
+    end
     resources :updates, except: [:index] do
       member do
         put 'like', to: "updates#upvote"

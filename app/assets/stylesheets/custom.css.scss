@@ -265,7 +265,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .signup-form-inner-div, .login-form-inner-div, .user-index-well, 
-.new-goal-form, .new-update-form {
+.new-goal-form, .new-update-form, .goal-show-well, .goal-show-update-well, 
+.update-show-well {
     transition: all .15s ease;
     &:hover {
         transform: translateY(-2px);
