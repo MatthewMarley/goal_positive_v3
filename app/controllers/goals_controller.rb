@@ -43,6 +43,7 @@ class GoalsController < ApplicationController
     
     def show
         @goal = Goal.find(params[:id])
+        #@comment = Comment.find(params[:comment_id])
     end
     
     def edit

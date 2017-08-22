@@ -31,30 +31,39 @@
         
         <h4 align="center">Comments</h4>
         <% if logged_in? %>
-            <div class="panel panel-default">
-                <div class="panel-heading well-border">
-                    <h4="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordian" href="#collapseOne">
-                            Click to reply
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <%= render 'comments/goal_form' %>
-                    </div>
-                </div>
-            </div>
+            <%= render 'comments/goal_form' %>
         <% end %>
         
-        <% @goal.comments.each do |comment| %>
-            <div class="goal-comments">
-                <small><b><%= comment.user.username %>: </b></small>
-                <br>
-                <%= comment.name %>
-                <hr>
+        <div class="main-div">
+            <div class="fivepx-top-margin"></div>
+            <% @goal.comments.each do |comment| %>
+            <div class="goals-show-comments">
+                <ul>
+                    <li class="goals-show-comment-list">
+                        <small><b><%= comment.user.username %></b></small>
+                        <br>
+                        <%= comment.name %>
+                        <ul>
+                            <% comment.comments.each do |nestedcomment| %>
+                                <% if nestedcomment %>
+                                    <li class="goals-show-comment-list">
+                                        <div class="goals-show-nested-comments">
+                                            <div class="fivepx-left-margin">
+                                                <small><b><%= nestedcomment.user.username %></b></small>
+                                                <br>
+                                                <%= nestedcomment.name %>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <% end %>
+                            <% end %>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-        <% end %>
+            <% end %>
+        </div>
+        
     </div>
     
     <div class="col-md-5">
@@ -86,3 +95,36 @@
         <% end %>
     </div>
 </div>
+
+
+
+<!-- 
+<div class="panel panel-default">
+    <div class="panel-heading well-border">
+        <h4="panel-title">
+            <a data-toggle="collapse" data-parent="#accordian" href="#collapseOne">
+                Click to reply
+            </a>
+        </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+        <div class="panel-body">
+            <%= render 'comments/goal_form' %>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- <% @goal.comments.each do |comment| %>
+    <div class="goal-comments">
+        <small><b><%= comment.user.username %>: </b></small>
+        <br>
+        <%= comment.name %>
+        <ul>
+            
+        </ul>
+        
+    
+        <hr>
+    </div>
+<% end %> -->
