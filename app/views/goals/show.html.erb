@@ -43,10 +43,12 @@
                         <small><b><%= comment.user.username %></b></small>
                         <br>
                         <%= comment.name %>
+                        <!-- include lists, not just divs, for semantic correctness. It aids
+                        screen readers, Google robot, and visually impaired users (and more browser compatible? -->
                         <ul>
                             <% comment.comments.each do |nestedcomment| %>
                                 <% if nestedcomment %>
-                                    <li class="goals-show-comment-list">
+                                    <li class="goals-show-nested-comment-list">
                                         <div class="goals-show-nested-comments">
                                             <div class="fivepx-left-margin">
                                                 <small><b><%= nestedcomment.user.username %></b></small>
