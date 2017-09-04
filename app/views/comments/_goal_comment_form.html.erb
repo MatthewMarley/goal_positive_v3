@@ -1,6 +1,4 @@
-
-
-<%= form_for [@commentable, Comment.new], url: goal_comment_comments_path(@goal, @comment) do |f| %>
+<%= form_for [@commentable, Comment.new], url: goal_comment_comments_path(@goal, comment) do |f| %>
     
     <div class="form-group">
         <%= f.label :name %>
@@ -12,9 +10,3 @@
     </div>
     
 <% end %>
-
-<!--
-    <ul>
-        <%= render 'comments/goal_comment_form' %>
-    </ul> 
-        -->

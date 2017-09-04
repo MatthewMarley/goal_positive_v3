@@ -165,13 +165,15 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0;
 }
 
-.about-para-5 {
-    opacity: 0;
+.about-para-2, .about-para-3, .about-para-4, .about-para-5, .about-para-6 {
+    text-align: center;
 }
 
-.about-create, .about-share, .about-help {
+.about-create, .about-share, .about-help, .about-inspire, .about-understand {
     height: 200px;
     border-radius: 25px;
+    border: 1px solid #f2f2f2;
+    margin-left: 55px;
     /* Safari, iOS, Andriod */
     -webkit-transition: background-color 0.5s, color 0.5s;
     /* Firefox */
@@ -190,11 +192,11 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-.h3-about-create, .h3-about-share, .h3-about-help {
+.h3-about-create, .h3-about-share, .h3-about-help, .h3-about-inspire, .h3-about-understand {
     padding-bottom: 15px;
 }
 
-.slider-create, .slider-share, .slider-help {
+.slider-create, .slider-share, .slider-help, .slider-inspire, .slider-understand {
     //position: absolute;
     bottom: 0;
     left: 0;
@@ -277,12 +279,13 @@ h1, h2, h3, h4, h5, h6 {
     border-style: solid;
     border-color: grey;
     border-width: 1px;
-    background-color: lightgrey;
+    background-color: #f2f2f2;
     margin-bottom: 5px;
-    border-radius: 5px;
+    border-radius: 3px;
     padding-left: 5px;
     margin-left: 5px;
     margin-right: 5px;
+    margin-top: 5px;
 }
 
 .goals-show-nested-comments {
@@ -290,16 +293,27 @@ h1, h2, h3, h4, h5, h6 {
     border-color: grey;
     border-width: 1px;
     background-color: white;
-    border-radius: 5px;
+    border-radius: 3px;
+    margin-top: 5px;
+}
+
+.goals-show-double-nested-comments {
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+    background-color: #f2f2f2;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    padding-left: 5px;
     margin-top: 5px;
 }
 
 .goals-show-comment-list {
     list-style: none;
-    margin-left: -20px;
+    margin-left: -30px;
 }
 
-.goals-show-nested-comment-list {
+.goals-show-nested-comment-list, .goals-show-double-nested-comment-list {
     list-style: none;
     margin-left: -40px;
     margin-right: 5px;
@@ -309,13 +323,19 @@ h1, h2, h3, h4, h5, h6 {
     border-style: solid;
     border-color: grey;
     border-width: 1px;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .fivepx-top-margin {
     margin-top: 5px;
 }
 
-.fivepx-left-margin {
+.goals-show-nested-comment-margins {
     margin-left: 15px;
+    margin-bottom: 8px;
+}
+
+.goals-show-double-nested-comment-margins {
+    margin-left: 10px;
+    margin-bottom: 8px;
 }

@@ -43,6 +43,25 @@
                         <small><b><%= comment.user.username %></b></small>
                         <br>
                         <%= comment.name %>
+                        
+                        <!-- Collapsable Panel -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading well-border">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordian" href="#collapseTwo">
+                                        Click to reply
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <%= render partial: 'comments/goal_comment_form', :locals => { :comment => comment } %>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
                         <!-- include lists, not just divs, for semantic correctness. It aids
                         screen readers, Google robot, and visually impaired users (and more browser compatible? -->
                         <ul>
@@ -50,10 +69,44 @@
                                 <% if nestedcomment %>
                                     <li class="goals-show-nested-comment-list">
                                         <div class="goals-show-nested-comments">
-                                            <div class="fivepx-left-margin">
+                                            <div class="goals-show-nested-comment-margins">
                                                 <small><b><%= nestedcomment.user.username %></b></small>
                                                 <br>
                                                 <%= nestedcomment.name %>
+                                                
+                                                <!-- Collapsable Panel -->
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading well-border">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordian" href="#collapseThree">
+                                                                Click to reply
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseThree" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <%= render partial: 'comments/goal_comment_form', :locals => { :comment => comment } %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <ul>
+                                                    <% nestedcomment.comments.each do |doublenestedcomment| %>
+                                                        <% if doublenestedcomment %>
+                                                            <li class="goals-show-double-nested-comment-list">
+                                                                <div class="goals-show-double-nested-comments">
+                                                                    <div class="goals-show-double-nested-comment-margins">
+                                                                        <small><b><%= doublenestedcomment.user.username %></b></small>
+                                                                        <br>
+                                                                        <%= doublenestedcomment.name %>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        <% end %>
+                                                    <% end %>
+                                                </ul>
+                                                
                                             </div>
                                         </div>
                                     </li>

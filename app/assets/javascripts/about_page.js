@@ -37,6 +37,26 @@ $(document).on('turbolinks:load', function() {
                }, 500);
            });
            
+           $('.about-inspire').hover(function() {
+               $('.slider-inspire').stop().animate({
+                   width: $('.h3-about-inspire').width()
+               }, 500);
+           }, function() {
+               $('.slider-inspire').stop().animate({
+                   width: 0
+               }, 500);
+           });
+           
+           $('.about-understand').hover(function() {
+               $('.slider-understand').stop().animate({
+                   width: $('.h3-about-understand').width()
+               }, 500);
+           }, function() {
+               $('.slider-understand').stop().animate({
+                   width: 0
+               }, 500);
+           });
+           
            
            
            
