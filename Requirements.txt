@@ -1,14 +1,15 @@
 Features
 
-- Users can toggle whether their account is Public or Private
+- Users can toggle whether their account is Public or Private.
 
 - On Home Page under Explore Goal Positive, have the blue button options fadeIn
-rather than just appear
+rather than just appear.
 
 - Have the gold logo "Goal Positive" only fade in if it's the first page visited
 on the site. E.g. direct from google or URL bar? FadesIn. Going from the home
 page to the Login page? Doesn't fade in.
 
-- Remove Friendship Feature
+- Ensure site security (e.g. Private user profiles cannot be viewed by manually
+typing in the URL.
 
 
