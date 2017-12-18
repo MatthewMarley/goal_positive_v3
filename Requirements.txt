@@ -1,50 +1,14 @@
 Features
 
-Pagination on Goals index & User index
+- Users can toggle whether their account is Public or Private
 
-Button under home page to start exploring
-    - Dropdown appears with choices?
-    
-All Pages
-- More extensive footer 
-- Add pagination for users and goals (or a self loader at the bottom?)
-- If you try to perform an action, it should show a message like on spotify when you try and add 
-a song to a playlist twice... original screen opacity dips slightly, message drops in from top and fades
-into view
+- On Home Page under Explore Goal Positive, have the blue button options fadeIn
+rather than just appear
 
-Home Page
+- Have the gold logo "Goal Positive" only fade in if it's the first page visited
+on the site. E.g. direct from google or URL bar? FadesIn. Going from the home
+page to the Login page? Doesn't fade in.
+
+- Remove Friendship Feature
 
 
-
-Users Show Page
-    - Add an option to add as friend if not already
-        - Maybe say "You are already friends" if they are
-    - Text hover elements only applied on inner div, need to work for whole div...
-    - Make the friends option look better
-    - Shouldn't be able to be friends with myself...
-    
-Users Index Page
-    - For users page have in going 3 across the screen, then new row etc.
-        
-        
-Goals Index Page
-    - Make it so your own goals appear slightly differently to help with differentiation?
-    - Can't see unless logged in (as same as home page) -> Surely the home page should be seeable
-    when not logged in?
-    
-Goals Show Page
-    - Show who the goal belongs to
-
-
-Log In Page
-    - Restructure it so it looks better
-
-Create somewhere to toggle admin status
-
-DB Seed
-    - Seed some db values using this rather than creating individual goals.
-    
-Sign Up Page
-
-    
-WILL PAGINATE.
