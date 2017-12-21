@@ -1,42 +1,84 @@
-<h1 align="center">Home Page</h1>
+<div class="row home-page-jumbotron">
+    <div class="col-md-6 col-md-offset-3">
+        <h1 align="center">Welcome to Goal Positive</h1>
+        <p align="center"><i>A place for like-minded individuals to achieve their
+        goals.</i></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h2>Why use Goal Positive?</h2>
+        <hr class="home-page-why-grid">
+        <div class="col-md-2">
+            <i class="fa fa-desktop fa-5x"></i>
+        </div>
+        <div class="col-md-3">
+            <p>Keep track of all your goals in one place, accessible from
+            anywhere in the world.</p>
+        </div>
+        <div class="col-md-2 col-md-offset-1">
+            <i class="fa fa-child fa-5x"></i>
+        </div>
+        <div class="col-md-3">
+            <p>The goal positive community allows you to meet like-minded
+            individuals who can motivate you in achieving your goals.</p>
+        </div>
+            <div class="col-md-2 home-page-trophy">
+                <i class="fa fa-trophy fa-5x"></i>
+            </div>
+            <div class="col-md-3 home-page-trophy">
+                <p>Have a record for the world to see how you progressing in your
+                goals.</p>
+            </div>
+            <div class="col-md-2 col-md-offset-1 home-page-trophy">
+                <i class="fa fa-handshake-o fa-5x"></i>
+            </div>
+            <div class="col-md-3 home-page-trophy">
+                <p>Give back to the community by helping others achieve their
+                goals.</p>
+            </div>
+    </div>
+</div>
 
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-<div class="home-page-explore">
-    <h3 class="home-page-explore-two"><a data-toggle="collapse" data-parent="#accordian" href="#collapseOne">
-        <div class="plz">Explore GoalPositive</div>
-    </a></h3>
-    
-    <div id="collapseOne" class="panel-collapse collapse">
-        <div class="panel-body explore-buttons-div">
-            <%= link_to "Explore Goals", goals_path, class: 'btn btn-primary home-' %>
-            <%= link_to "Find Friends", users_path, class: 'btn btn-primary' %>
-            <%= link_to "About Us", about_path, class: 'btn btn-primary' %>
+<div class="row home-testimonials">
+    <div class="col-md-8 col-md-offset-2">
+        <h2 align="center">Testimonials</h2>
+        <div class="col-md-5 col-md-offset-1">
+            <p>
+                "I always struggled to keep to an exercise regiment, constantly 
+            cheating on my diet and staying on the sofa eating junk food. With the 
+            help of Goal Positive I was able to easily lay out my targets for the
+            year and with the update system I could do weekly progress reports which
+            allowed me to see how I progressed over time." - <i>Gemma, 29.</i>
+            </p>
+        </div>
+        <div class="col-md-5">
+            <p>
+                "I find it very motivational to have commenting available on my
+                updates as I feel it gives me more accountability with my goals.
+                I know that if I have a productive week I will get praise from my
+                friends. And even if I fall, the community is able to bring me back
+                up and prepare me for next week" - <i>Anonymous.</i>
+            </p>
         </div>
     </div>
 </div>
 
 <br>
-<br>
 
-<div class="row">
-    <div class="home-page-goals-outer-div">
-        <% @filtered_goals.each do |goal| %>
-            <%= link_to goal_path(goal) do %>
-                <div class="row home-page-goals">
-                    <div class="col-md-4 col-md-offset-1 home-goal-name">
-                        <h2><%= goal.name %></h2>
-                    </div>
-                    <div class="col-md-4 home-goal-description">
-                        <h4><%= goal.description %></h4>
-                    </div>
-                    <div class="col-md-3 home-goal-username">
-                        <h4><%= goal.user.username %></h4>
-                    </div>
-                </div>
-            <% end %>
-        <% end %>
+<div class="row home-page-explore-section">
+    <div class="home-page-explore col-md-8 col-md-offset-2">
+        <h2 align="center">Still Interested?</h2>
+        <div class="home-page-signup">
+            <%= link_to "Create an account", signup_path, class: 'btn btn-primary' %>
+        </div>
     </div>
 </div>
-
-<%= will_paginate @filtered_goals %>

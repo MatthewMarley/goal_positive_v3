@@ -17,4 +17,3 @@ typing in the URL.
     - See all goals on homepage or just yours?
     - Night Mode vs Day Mode
 
-
