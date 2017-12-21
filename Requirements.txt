@@ -12,4 +12,9 @@ page to the Login page? Doesn't fade in.
 - Ensure site security (e.g. Private user profiles cannot be viewed by manually
 typing in the URL.
 
+- Add page where a user can amend their personal preferences?
+    - Public or Private Account
+    - See all goals on homepage or just yours?
+    - Night Mode vs Day Mode
+
 
