@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function() {
     //$('.about-para-5').fadeTo(8000, 1);
     $(function() {
        $(window).scroll(function() {
-           if($(this).scrollTop() + 1000 >= $('.about-overview').offset().top) {
+           if($(this).scrollTop() + 0 >= $('.about-overview').offset().top) {
                $('.about-overview').fadeTo(1000, 1);
            }
            // Add border and underline on hover. Use stop() to stop animations building up

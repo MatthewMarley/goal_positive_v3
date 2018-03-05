@@ -162,14 +162,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about-overview {
-    opacity: 0;
+    //opacity: 0;
 }
 
 .about-para-2, .about-para-3, .about-para-4, .about-para-5, .about-para-6 {
     text-align: center;
 }
 
-.about-create, .about-share, .about-help, .about-inspire, .about-understand {
+.about-create, .about-share, .about-help, .about-inspire, .about-enjoy {
     height: 200px;
     border-radius: 25px;
     border: 1px solid #f2f2f2;
@@ -192,7 +192,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-.h3-about-create, .h3-about-share, .h3-about-help, .h3-about-inspire, .h3-about-understand {
+.h3-about-create, .h3-about-share, .h3-about-help, .h3-about-inspire, .h3-about-enjoy {
     padding-bottom: 15px;
 }
 
@@ -366,4 +366,9 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     display: inline-block;
     margin-top: 25px;
+}
+
+.about-intro {
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
